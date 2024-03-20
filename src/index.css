@@ -1,0 +1,195 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+h1 {
+    font-size: 35px;
+}
+
+.iconblue {
+    color: #4295E4;
+}
+
+.navbar {
+    width: 100%;
+    padding: 20px 0;
+    border-bottom: 1px solid #EAEAEA;
+    box-shadow: 1px 3px 10px 5px #eaeaea83;
+}
+
+.navbar_container {
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky !important;
+    top: 0 auto;
+    z-index: 100;
+}
+
+.navbar_container .navbar_containerbox_1 {
+    display: flex;
+    align-items: center;
+    gap: 70px;
+}
+
+.navbar_container .navbar_containerbox_2 {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.navbar_container .navbar_containerbox_2 div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.navbar_container .navbar_containerbox_1 .navbar_box2 {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.navbar_modal {
+    position: absolute;
+    width: 790px;
+    height: 444px;
+    gap: 0px;
+    opacity: 0px;
+    top: 60px;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: #685f5f;
+    border-radius: 10px;
+    z-index: 100;
+}
+
+.navbarcaruselcontainer .navbar_modal_2 {
+    width: 300px;
+}
+
+.navbarcaruselcontainer img {
+    width: 300px;
+}
+
+.homecontainer {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+
+.cardcontainercarusel {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.cardcontainercarusel .homecontainercaruselparent {
+    width: 288px !important;
+    height: 476px !important;
+}
+
+.cardcontainercarusel .homecontainercaruselparent .cardimg {
+    width: 388px !important;
+    height: 320px !important;
+    margin-top: 50px;
+}
+
+.cardcontainercarusel .homecontainercaruselparent .cardapsalut {
+    position: absolute;
+    top: 2px !important;
+}
+
+.cardcontainercarusel .homecontainercaruselparent .cardapsalut .cardapsalut_flex {
+    width: 288px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+.cardcontainercarusel .homecontainercaruselparent .cardapsalut .cardapsalut_flex .card_padarka {
+    width: 115px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 6px 0;
+    background-color: #EAEAEA;
+}
+
+.cardcontainercarusel .homecontainercaruselparent .cardapsalut .cardapsalut_flex .card_padarka .padarka {
+    color: #4295E4;
+    font-size: 25px;
+    border-radius: 4px;
+}
+
+.cardcontainercarusel .homecontainercaruselparent .cardapsalut .cardapsalut_flex .card_sale {
+    width: 100px;
+    height: 37px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 6px 0;
+    background-color: #EAEAEA;
+}
+
+.cardcontainercarusel .homecontainercaruselparent .cardapsalut .cardapsalut_flex .card_sale .sale_discaunt {
+    margin-top: 17px;
+    color: #4295E4;
+    font-size: 30px;
+}
+
+.cardcontainercarusel .homecontainercaruselparent .cardapsalut .cardapsalut_flex .card_sale .prise_apsalud {
+    position: relative;
+    bottom: 30px;
+    font-size: 12px;
+    right: -5px;
+    transform: rotate(-44deg);
+    color: white;
+}
+
+.cardcontainercarusel .homecontainercaruselparent .card_p_padding {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: space-between;
+    height: 105px;
+    background-color: #EAEAEA;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.cardcontainercarusel .homecontainercaruselparent .card_p_padding p {
+    color: #454F5B;
+}
+
+.cardcontainercarusel .homecontainercaruselparent .card_p_padding .price {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.cardcontainercarusel .homecontainercaruselparent .card_p_padding .price h1 {
+    font-size: 25px;
+    font-weight: 400;
+    line-height: .87px;
+    letter-spacing: 0.7px;
+}
+
+.cardcontainercarusel .homecontainercaruselparent .card_p_padding .price del {
+    font-size: 23px;
+    font-weight: 200;
+    color: #454F5B;
+}

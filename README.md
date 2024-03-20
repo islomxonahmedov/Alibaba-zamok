@@ -1,1 +1,1 @@
-# Cherry loyihasi - admin panel bilan, eng so'nggi texnologiyalar yordamida #oxirgi_loyiha
+# Amaliyot 2 buloyihada zamok haqida web site

@@ -8,7 +8,7 @@ export const fetchUsers = createAsyncThunk(
   async () => {
     const response = await axios.get('http://localhost:5000/users');
     const users = response.data.map(user => {
-      return { ...user, products: [] }; // Foydalanuvchi obyektiga products qo'shish
+      return { ...user, products: [] };
     });
     return users;
   }
@@ -22,7 +22,6 @@ export const usersSlice = createSlice({
     error: null,
   },
   reducers: {
-    // reducerlar
   },
   extraReducers: (builder) => {
     builder

@@ -1,2 +1,0 @@
-import axios from "axios";
-export const api = axios.create({ baseURL: "https://cherry-uz.onrender.com" });

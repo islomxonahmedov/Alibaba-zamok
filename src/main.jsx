@@ -8,6 +8,7 @@ import { Provider } from 'react-redux'
 import { store } from './redux/store/index.js'
 import Basket from './pages/Basket.jsx'
 import ProfileStatus from './pages/ProfileStatus.jsx'
+import Cardinfo from './pages/Cardinfo.jsx'
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "profile-status",
         element: <ProfileStatus />
+      },
+      {
+        path: ":id",
+        element: <Cardinfo />
       },
 
     ]

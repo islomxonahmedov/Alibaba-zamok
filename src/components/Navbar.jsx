@@ -3,15 +3,31 @@ import logo from '../../public/img/Logo.svg';
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { CiHeart } from "react-icons/ci";
 import { CiShoppingCart } from "react-icons/ci";
-import { GoChevronDown, GoChevronUp } from "react-icons/go"; // GoChevronUp import qilindi
+import { GoChevronDown, GoChevronUp } from "react-icons/go";
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import { useSelector } from 'react-redux';
+
 
 function Navbar() {
+    const users = useSelector(state => state.users.users);
     const [isHovered, setIsHovered] = useState(false);
 
     const handleHover = () => {
         setIsHovered(!isHovered);
     };
-    
+
+    const settings = {
+        dots: false,
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 4000,
+        rtl: false,
+    };
+
 
     return (
         <div className="navbar">
@@ -26,7 +42,7 @@ function Navbar() {
                             className={`katalog_hover ${isHovered ? 'active' : ''}`}
                             onClick={handleHover}
                             style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-                            Каталог {isHovered ? <GoChevronUp /> : <GoChevronDown />} {/* GoChevronDown o'rniga GoChevronUp qo'yildi */}
+                            Каталог {isHovered ? <GoChevronUp /> : <GoChevronDown />}
                         </p>
                         <p>Оптовая продажа</p>
                         <p>О нас</p>
@@ -53,7 +69,15 @@ function Navbar() {
                         <p>Замки для раздевалок</p>
                     </div>
                     <div className="navbar_modal_2">
-
+                        <div style={{ width: "270px", border:"1px solid #EAEAEA" }} className="carousel">
+                            <Slider {...settings}>
+                                {users.map((image) => (
+                                    <div key={image.src}>
+                                        <img src={image.img} alt={image.alt} />
+                                    </div>
+                                ))}
+                            </Slider>
+                        </div>
                     </div>
                 </div>
             )}

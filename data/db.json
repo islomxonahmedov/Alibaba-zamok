@@ -48,7 +48,11 @@
       "img": "https://goldensoft.tech/wp-content/uploads/2021/05/smart-lock-door-gs-65t-2.jpg",
       "discount": 10,
       "status": false,
-      "price": 1750
+      "price": 1750,
+      "img1": "https://goldensoft.tech/wp-content/uploads/2021/05/smart-lock-door-gs-65t-2-100x100.jpg",
+      "img2": "https://goldensoft.tech/wp-content/uploads/2021/05/smart-lock-door-gs-65t-6-100x100.jpg",
+      "img3": "https://goldensoft.tech/wp-content/uploads/2021/05/smart-lock-door-gs-65t-5-100x100.jpg",
+      "img4": "https://goldensoft.tech/wp-content/uploads/2021/05/smart-lock-door-gs-65t-3-100x100.jpg"
     },
     {
       "id": "6",

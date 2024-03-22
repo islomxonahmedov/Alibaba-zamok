@@ -8,7 +8,11 @@
       "img": "https://goldensoft.tech/wp-content/uploads/2021/05/skud-200z-5-11.jpg",
       "discount": 10,
       "status": true,
-      "price": 1140
+      "price": 1140,
+      "img1": "https://images.prom.ua/2825613106_w640_h640_elektronnyj-zamok-dlya.jpg",
+      "img2": "https://images.prom.ua/2824816005_w640_h640_elektronnyj-zamok-dlya.jpg",
+      "img3": "https://images.prom.ua/2824672219_w640_h640_elektronnyj-zamok-dlya.jpg",
+      "img4": "https://goldensoft.tech/wp-content/uploads/2021/05/smart-lock-door-gs-65t-2.jpg"
     },
     {
       "id": "2",
@@ -18,7 +22,11 @@
       "img": "https://images.prom.ua/2825613106_w640_h640_elektronnyj-zamok-dlya.jpg",
       "discount": 10,
       "status": true,
-      "price": 2420
+      "price": 2420,
+      "img1": "https://goldensoft.tech/wp-content/uploads/2021/05/skud-200z-5-11.jpg",
+      "img2": "https://images.prom.ua/2824816005_w640_h640_elektronnyj-zamok-dlya.jpg",
+      "img3": "https://images.prom.ua/2824672219_w640_h640_elektronnyj-zamok-dlya.jpg",
+      "img4": "https://goldensoft.tech/wp-content/uploads/2021/05/smart-lock-door-gs-65t-2.jpg"
     },
     {
       "id": "3",
@@ -28,7 +36,11 @@
       "img": "https://images.prom.ua/2824816005_w640_h640_elektronnyj-zamok-dlya.jpg",
       "discount": 10,
       "status": false,
-      "price": 1050
+      "price": 1050,
+      "img1": "https://goldensoft.tech/wp-content/uploads/2021/05/skud-200z-5-11.jpg",
+      "img2": "https://images.prom.ua/2825613106_w640_h640_elektronnyj-zamok-dlya.jpg",
+      "img3": "https://images.prom.ua/2824672219_w640_h640_elektronnyj-zamok-dlya.jpg",
+      "img4": "https://goldensoft.tech/wp-content/uploads/2021/05/smart-lock-door-gs-65t-2.jpg"
     },
     {
       "id": "4",
@@ -38,7 +50,11 @@
       "img": "https://images.prom.ua/2824672219_w640_h640_elektronnyj-zamok-dlya.jpg",
       "discount": 10,
       "status": false,
-      "price": 940
+      "price": 940,
+      "img1": "https://goldensoft.tech/wp-content/uploads/2021/05/skud-200z-5-11.jpg",
+      "img2": "https://images.prom.ua/2825613106_w640_h640_elektronnyj-zamok-dlya.jpg",
+      "img3": "https://images.prom.ua/2824816005_w640_h640_elektronnyj-zamok-dlya.jpg",
+      "img4": "https://goldensoft.tech/wp-content/uploads/2021/05/smart-lock-door-gs-65t-2.jpg"
     },
     {
       "id": "5",
@@ -49,10 +65,10 @@
       "discount": 10,
       "status": false,
       "price": 1750,
-      "img1": "https://goldensoft.tech/wp-content/uploads/2021/05/smart-lock-door-gs-65t-2-100x100.jpg",
-      "img2": "https://goldensoft.tech/wp-content/uploads/2021/05/smart-lock-door-gs-65t-6-100x100.jpg",
-      "img3": "https://goldensoft.tech/wp-content/uploads/2021/05/smart-lock-door-gs-65t-5-100x100.jpg",
-      "img4": "https://goldensoft.tech/wp-content/uploads/2021/05/smart-lock-door-gs-65t-3-100x100.jpg"
+      "img1": "https://goldensoft.tech/wp-content/uploads/2021/05/smart-lock-door-gs-65t-2.jpg",
+      "img2": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQ-2uDwYL7xBOSjH0qqj0i-GLT6I3CQ9Hch6IktGaK6t0lCfoqL",
+      "img3": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS3ua12bkm6gLucIWDRGEGRQPwEW57aRrWK9dkU77ubA_ByRilD",
+      "img4": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQJ6PgWngcL6e8kdJyWrSg78-70QHWsUhh-N9VUQpwfZaK1XDbN"
     },
     {
       "id": "6",
@@ -62,7 +78,11 @@
       "img": "https://goldensoft.tech/wp-content/uploads/2021/05/jyl-l05.jpg",
       "discount": 10,
       "status": true,
-      "price": 1405
+      "price": 1405,
+      "img1": "https://goldensoft.tech/wp-content/uploads/2021/05/skud-200z-5-11.jpg",
+      "img2": "https://images.prom.ua/2825613106_w640_h640_elektronnyj-zamok-dlya.jpg",
+      "img3": "https://images.prom.ua/2824816005_w640_h640_elektronnyj-zamok-dlya.jpg",
+      "img4": "https://goldensoft.tech/wp-content/uploads/2021/05/smart-lock-door-gs-65t-2.jpg"
     },
     {
       "id": "7",
@@ -72,7 +92,11 @@
       "img": "https://goldensoft.tech/wp-content/uploads/2021/05/skud-gs-805-2.jpg",
       "discount": 10,
       "status": true,
-      "price": 1230
+      "price": 1230,
+      "img1": "https://goldensoft.tech/wp-content/uploads/2021/05/skud-200z-5-11.jpg",
+      "img2": "https://images.prom.ua/2825613106_w640_h640_elektronnyj-zamok-dlya.jpg",
+      "img3": "https://images.prom.ua/2824816005_w640_h640_elektronnyj-zamok-dlya.jpg",
+      "img4": "https://goldensoft.tech/wp-content/uploads/2021/05/smart-lock-door-gs-65t-2.jpg"
     }
   ]
 }

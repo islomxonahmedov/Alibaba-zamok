@@ -240,11 +240,125 @@ h1 {
     color: #454F5B;
 }
 
+.right {
+    color: #161C24;
+    font-size: 40px;
+}
+
+.right:hover {
+    color: #C4CDD5;
+}
+
 .info_container {
     width: 1200px;
     margin: 0 auto;
+    color: #161C24;
 }
 
+.info_container .info_c_tepa {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.info_container .info_c_tepa .info_c_b1 {
+    width: 550px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.info_container .info_c_tepa .info_c_b1 .cardi_rasim1 img {
+    width: 550px;
+}
+
+.info_container .info_c_tepa .info_c_b1 .cardi_rasim2 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.info_container .info_c_tepa .info_c_b1 .cardi_rasim2 img {
+    width: 130px;
+    border: 1px solid #EAEAEA;
+    border-radius: 5px;
+}
+
+.info_container .info_c_tepa .info_c_b1 .cardi_rasim2 img:hover {
+    border: 1px solid #adaaaa;
+}
+
+.info_container .info_c_tepa .info_c_b2 {
+    width: 630px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.info_container .info_c_tepa .info_c_b2 .b1 {
+    display: flex;
+    gap: 20px;
+}
+
+.info_container .info_c_tepa .info_c_b2 .b2 {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.info_container .info_c_tepa .info_c_b2 .b4 {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.info_container .info_c_tepa .info_c_b2 .b5 {
+    margin-top: 15px;
+    display: flex;
+    gap: 100px;
+}
+.info_container .info_c_tepa .info_c_b2 .b5 div{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.info_container .info_c_tepa .info_c_b2 .b6{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.info_container .info_c_tepa .info_c_b2 .b6 del{
+    color: #adaaaa;
+    font-size: 30px;
+    font-weight: 200;
+}
+
+.infoselect {
+    width: 270px;
+    padding: 7px 13px;
+    background-color: white;
+    border: 1px solid #C4CDD5;
+    position: relative;
+}
+.info_container .info_c_tepa .info_c_b2 .b7{
+    display: flex;
+    gap: 60px;
+}
+.globalbutton{
+    width: 288px;
+    background-color: #4295E4;
+    color: white;
+    padding: 10px 0;
+}
+.cardinfolike{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+}
+.info_container .info_c_tepa .info_c_b2 .b8 h3{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 @media screen and (max-width: 1000px) {
     .hamburger {
         display: flex;

@@ -8,6 +8,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useSelector } from 'react-redux';
+import { HiOutlineBars3 } from "react-icons/hi2";
 
 
 function Navbar() {
@@ -26,6 +27,11 @@ function Navbar() {
         autoplay: true,
         autoplaySpeed: 4000,
         rtl: false,
+    };
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleSidebar = () => {
+        setIsOpen(!isOpen);
     };
 
 
@@ -46,10 +52,13 @@ function Navbar() {
                         </p>
                         <p>Оптовая продажа</p>
                         <p>О нас</p>
+                        <button className="toggle-button" onClick={toggleSidebar}>
+                            <HiOutlineBars3 />
+                        </button>
                     </div>
                 </div>
                 <div className="navbar_containerbox_2">
-                    <div>
+                    <div className='telefon_n'>
                         <BsFillTelephoneFill className="iconblue" style={{ fontSize: "25px" }} />
                         <p>+(998) 77 095 00 25</p>
                     </div>
@@ -69,7 +78,7 @@ function Navbar() {
                         <p>Замки для раздевалок</p>
                     </div>
                     <div className="navbar_modal_2">
-                        <div style={{ width: "270px", border:"1px solid #EAEAEA" }} className="carousel">
+                        <div style={{ width: "270px", border: "1px solid #EAEAEA" }} className="carousel">
                             <Slider {...settings}>
                                 {users.map((image) => (
                                     <div key={image.src}>
@@ -81,6 +90,15 @@ function Navbar() {
                     </div>
                 </div>
             )}
+            <div className={isOpen ? "sidebar open" : "sidebar"}>
+                <ul className="menu">
+                    <div onClick={toggleSidebar}>X</div>
+                    <li><a href="#">Link 1</a></li>
+                    <li><a href="#">Link 2</a></li>
+                    <li><a href="#">Link 3</a></li>
+                    <li><a href="#">Link 4</a></li>
+                </ul>
+            </div>
         </div>
     );
 }

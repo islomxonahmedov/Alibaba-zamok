@@ -9,11 +9,14 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useSelector } from 'react-redux';
 import { HiOutlineBars3 } from "react-icons/hi2";
+import { HiMiniXMark } from "react-icons/hi2";
+import { NavLink } from 'react-router-dom';
 
 
 function Navbar() {
     const users = useSelector(state => state.users.users);
     const [isHovered, setIsHovered] = useState(false);
+    const [activeIndex, setActiveIndex] = useState(null);
 
     const handleHover = () => {
         setIsHovered(!isHovered);
@@ -34,6 +37,10 @@ function Navbar() {
         setIsOpen(!isOpen);
     };
 
+    const toggleParagraphVisibility = (index) => {
+        setActiveIndex(index === activeIndex ? null : index);
+    };
+
 
     return (
         <div className="navbar">
@@ -52,10 +59,10 @@ function Navbar() {
                         </p>
                         <p>Оптовая продажа</p>
                         <p>О нас</p>
-                        <button className="toggle-button" onClick={toggleSidebar}>
-                            <HiOutlineBars3 />
-                        </button>
                     </div>
+                    <button className="toggle-button" onClick={toggleSidebar}>
+                        <HiOutlineBars3 />
+                    </button>
                 </div>
                 <div className="navbar_containerbox_2">
                     <div className='telefon_n'>
@@ -92,11 +99,42 @@ function Navbar() {
             )}
             <div className={isOpen ? "sidebar open" : "sidebar"}>
                 <ul className="menu">
-                    <div onClick={toggleSidebar}>X</div>
-                    <li><a href="#">Link 1</a></li>
-                    <li><a href="#">Link 2</a></li>
-                    <li><a href="#">Link 3</a></li>
-                    <li><a href="#">Link 4</a></li>
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 30px", marginTop: "20px", position: "relative", bottom: "10px" }} className="saidbarlogo">
+                        <img src={logo} alt="" />
+                        <div className='saidbar_xmark' onClick={toggleSidebar}><HiMiniXMark /></div>
+                    </div>
+                    <li><a href="#">Главная</a></li>
+                    <li className='katalogfous' onClick={() => toggleParagraphVisibility(0)}>
+                        <a href="#">
+                            <p
+                                style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+                                Каталог {isHovered ? <GoChevronUp /> : <GoChevronDown />}
+                            </p>
+                        </a>
+                    </li>
+                    <NavLink href="#" style={{}}> {activeIndex === 0 && (
+                        <p className='navbartokin' style={{ padding: "10px 10px 10px 20px", borderBottom: '1px solid #55555542' }}>Накладные электронные замки</p>
+                    )}</NavLink>
+                    <NavLink href="#" style={{}}> {activeIndex === 0 && (
+                        <p className='navbartokin' style={{ padding: "10px 10px 10px 20px", borderBottom: '1px solid #55555542' }}>Врезные электронные замки</p>
+                    )}</NavLink>
+                    <NavLink href="#" style={{}}> {activeIndex === 0 && (
+                        <p className='navbartokin' style={{ padding: "10px 10px 10px 20px", borderBottom: '1px solid #55555542' }}>Замки для квартиры</p>
+                    )}</NavLink>
+                    <NavLink href="#" style={{}}> {activeIndex === 0 && (
+                        <p className='navbartokin' style={{ padding: "10px 10px 10px 20px", borderBottom: '1px solid #55555542' }}>Замки для отелей</p>
+                    )}</NavLink>
+                    <NavLink href="#" style={{}}> {activeIndex === 0 && (
+                        <p className='navbartokin' style={{ padding: "10px 10px 10px 20px", borderBottom: '1px solid #55555542' }}>Замки для офиса</p>
+                    )}</NavLink>
+                    <NavLink href="#" style={{}}> {activeIndex === 0 && (
+                        <p className='navbartokin' style={{ padding: "10px 10px 10px 20px", borderBottom: '1px solid #55555542' }}>Замки для шкафчиков</p>
+                    )}</NavLink>
+                    <NavLink href="#" style={{}}> {activeIndex === 0 && (
+                        <p className='navbartokin' style={{ padding: "10px 10px 10px 20px", borderBottom: '1px solid #55555542' }}>Замки для раздевалок</p>
+                    )}</NavLink>
+                    <li><a href="#">Оптовая продажа</a></li>
+                    <li><a href="#">О нас</a></li>
                 </ul>
             </div>
         </div>

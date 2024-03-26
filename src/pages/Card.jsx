@@ -33,6 +33,13 @@ function Card() {
                     slidesToShow: 3,
                     slidesToScroll: 1
                 }
+            },
+            {
+                breakpoint: 750,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
             }
         ]
     };
@@ -46,8 +53,8 @@ function Card() {
     return (
         <div className='cardcontainercarusel'>
             <div style={{ marginBottom: "3%", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 8px" }}>
-                <h1>Наши популярные продукты</h1>
-                <div style={{ marginTop: "8px",display:"flex",alignItems:"center",gap:"20px" }}>
+                <h1 className='card_h1'>Наши популярные продукты</h1>
+                <div className='carusel_right' style={{ marginTop: "8px", display: "flex", alignItems: "center", gap: "20px" }}>
                     <button className='right' onClick={nextup}><GoChevronLeft /></button>
                     <button className='right' onClick={next}><GoChevronRight /></button>
                 </div>
@@ -76,7 +83,7 @@ function Card() {
                                     <div className='card_padarka'>
                                         <CiGift className='padarka' />Подарок
                                     </div>
-                                    <div className='b_nalichne' style={{ display: "flex", alignItems: "center", gap: "4px", marginTop: "4px"}}>
+                                    <div className='b_nalichne' style={{ display: "flex", alignItems: "center", gap: "4px", marginTop: "4px" }}>
                                         <FaXmark style={{ color: "#E44286" }} /> Нет в наличии
                                     </div>
                                 </div>

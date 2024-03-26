@@ -72,7 +72,7 @@ h1 {
     transform: translate(-50%);
     background-color: #ffffff;
     border-radius: 10px;
-    z-index: 100;
+    z-index: 9999;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -133,6 +133,7 @@ h1 {
     width: 300px;
     line-height: 22px;
 }
+
 
 
 .cardcontainercarusel {
@@ -459,6 +460,7 @@ h1 {
 
 .toggle-button {
     display: none;
+    font-size: 25px;
 }
 
 .menu {
@@ -480,6 +482,12 @@ h1 {
 .menu li:hover {
     background-color: #55555517;
 }
+
+.navbartokin:hover {
+    background-color: #55555517 !important;
+}
+
+/* mediya 1250px */
 
 @media screen and (max-width: 1250px) {
     .navbar {
@@ -595,11 +603,27 @@ h1 {
         font-size: 18px;
     }
 
+    .card_h1 {
+        font-size: 23px;
+    }
+
+    .carusel_right {
+        position: relative;
+        right: 10px;
+    }
+
+    .carusel_right button {
+        font-size: 25px;
+    }
+
+
     .b_nalichne {
         font-size: 15px !important;
     }
 
 }
+
+/* mediaya 1000px */
 
 @media screen and (max-width: 1000px) {
 
@@ -608,9 +632,13 @@ h1 {
     }
 }
 
+
+/* mediya 950px */
+
+
 @media screen and (max-width: 950px) {
     .toggle-button {
-        display: contents;
+        display: none;
     }
 
     .navbar {
@@ -727,6 +755,11 @@ h1 {
         height: 105px;
     }
 
+    .cardcontainercarusel .homecontainercaruselparent .card_p_padding p {
+        font-size: 15px;
+        line-height: 20px;
+    }
+
     .cardcontainercarusel .homecontainercaruselparent .card_p_padding .price {
         display: flex;
         align-items: center;
@@ -740,4 +773,335 @@ h1 {
     .cardcontainercarusel .homecontainercaruselparent .card_p_padding .price del {
         font-size: 18px;
     }
+}
+
+/* mediya 750px */
+
+
+@media screen and (max-width: 750px) {
+    .toggle-button {
+        display: contents;
+    }
+
+    .navbar {
+        padding: 15px 0;
+    }
+
+    .navbar_container {
+        width: 500px;
+    }
+
+    .navbar_container .navbar_containerbox_1 {
+        gap: 50px;
+    }
+
+    .navbar_container .navbar_containerbox_2 {
+        gap: 10px;
+    }
+
+    .navbar_container .navbar_containerbox_1 .navbar_box2 {
+        gap: 30px;
+        font-size: 15px;
+        display: none;
+    }
+
+    .navbar_box1 {
+        display: none;
+    }
+
+    /* home */
+
+    .homecontainer {
+        width: 500px;
+        margin: 0 auto;
+    }
+
+    .homesection_1_carusel {
+        width: 500px;
+        margin-top: 10px;
+        margin-bottom: 30px;
+    }
+
+    .homesection_1_carusel .katta_karusel img {
+        width: 250px;
+    }
+
+    .homesection_1_carusel .katta_karusel .katta_karusel_box2 {
+        width: 250px;
+        height: 250px;
+    }
+
+    .homesection_1_carusel .katta_karusel .katta_karusel_box2 .fulname {
+        font-size: 22px;
+        line-height: 30px;
+        margin-top: 10px;
+    }
+
+    .homesection_1_carusel .katta_karusel .katta_karusel_box2 .home_deskiription {
+        display: none;
+    }
+
+
+    .homesection_1_carusel .katta_karusel .katta_karusel_box2 .mn {
+        display: flex;
+        font-size: 15px;
+    }
+
+    .homesection_1_carusel .katta_karusel .katta_karusel_box2 .price div {
+        gap: 13px !important;
+    }
+
+    .homesection_1_carusel .katta_karusel .katta_karusel_box2 .price h1 {
+        font-size: 20px !important;
+    }
+
+    .homesection_1_carusel .katta_karusel .katta_karusel_box2 .price del {
+        font-size: 20px !important;
+    }
+
+    /* card carusel */
+    .cardcontainercarusel {
+        width: 500px;
+    }
+
+    .cardcontainercarusel .homecontainercaruselparent {
+        width: 240px !important;
+        height: 410px !important;
+    }
+
+    .cardcontainercarusel .homecontainercaruselparent .cardimg {
+        width: 240px !important;
+        height: 240px !important;
+        margin-top: 50px;
+    }
+
+    .cardcontainercarusel .homecontainercaruselparent .cardapsalut {
+        top: 2px !important;
+    }
+
+    .cardcontainercarusel .homecontainercaruselparent .cardapsalut .cardapsalut_flex {
+        width: 100%;
+    }
+
+    .cardcontainercarusel .homecontainercaruselparent .cardapsalut .cardapsalut_flex .card_sale {
+        width: 115px;
+    }
+
+    .cardcontainercarusel .homecontainercaruselparent .card_p_padding {
+        padding: 5px 10px;
+        gap: 5px;
+        height: 105px;
+    }
+
+    .cardcontainercarusel .homecontainercaruselparent .card_p_padding .price {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .cardcontainercarusel .homecontainercaruselparent .card_p_padding .price h1 {
+        font-size: 20px;
+    }
+
+    .cardcontainercarusel .homecontainercaruselparent .card_p_padding .price del {
+        font-size: 18px;
+    }
+
+    .saidbar_xmark {
+        font-size: 20px;
+        color: #4295E4;
+        padding: 5px;
+        border: 1px solid #4295E4;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    .katalog_hover {
+        display: none !important;
+    }
+}
+
+
+@media screen and (max-width: 550px) {
+    .navbar_container {
+        width: 400px;
+    }
+
+    .navbar_container .navbar_containerbox_1 {
+        gap: 0px;
+    }
+
+    .navbar_container .navbar_containerbox_2 {
+        gap: 10px;
+    }
+
+    /* home */
+
+    .homecontainer {
+        width: 400px;
+        margin: 0 auto;
+    }
+
+    .homesection_1_carusel {
+        width: 400px;
+        margin-top: 10px;
+        margin-bottom: 30px;
+        font-size: 15px;
+    }
+
+    .homesection_1_carusel .katta_karusel {
+        display: flex !important;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .homesection_1_carusel .katta_karusel img {
+        width: 375px;
+    }
+
+    .homesection_1_carusel .katta_karusel .katta_karusel_box2 {
+        width: 400px;
+        height: 200px;
+        padding: 0 20px;
+        gap: 2px !important;
+    }
+
+    .homesection_1_carusel .katta_karusel .katta_karusel_box2 .fulname {
+        font-size: 20px;
+        line-height: 30px;
+        margin-top: 10px;
+    }
+
+    .homesection_1_carusel .katta_karusel .katta_karusel_box2 .home_deskiription {
+        display: none;
+    }
+
+
+    .homesection_1_carusel .katta_karusel .katta_karusel_box2 .mn {
+        display: flex;
+        font-size: 14px;
+    }
+
+    .homesection_1_carusel .katta_karusel .katta_karusel_box2 .price div {
+        gap: 15px !important;
+    }
+
+    .homesection_1_carusel .katta_karusel .katta_karusel_box2 .price h1 {
+        font-size: 25px !important;
+    }
+
+    .homecaruselbtn {
+        width: 100% !important;
+    }
+
+    /* card carusel */
+    .homecaruselcontainer {
+        width: 400px;
+        overflow: hidden;
+    }
+
+    .carusel_right {
+        display: none;
+    }
+
+    .saidbar_xmark {
+        font-size: 20px;
+        color: #4295E4;
+        padding: 5px;
+        border: 1px solid #4295E4;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+}
+
+@media screen and (max-width: 450px) {
+
+    /* navbar */
+    .navbar_container {
+        width: 300px;
+    }
+
+    /* home */
+    .homecontainer {
+        width: 300px;
+        margin: 0 auto;
+    }
+
+    .homesection_1_carusel {
+        width: 300px;
+    }
+
+    .homesection_1_carusel .katta_karusel img {
+        width: 300px;
+        height: 300px;
+    }
+
+    .homesection_1_carusel .katta_karusel .katta_karusel_box2 {
+        width: 300px;
+        height: 170px;
+        padding: 0 20px;
+        gap: 2px !important;
+    }
+
+    .homesection_1_carusel .katta_karusel .katta_karusel_box2 .fulname {
+        margin-top: 0px;
+    }
+
+    .homesection_1_carusel .katta_karusel .katta_karusel_box2 .mn {
+        display: none;
+    }
+
+    /* card carusel */
+    .homecaruselcontainer {
+        width: 300px;
+        overflow: hidden;
+    }
+
+    .card_h1 {
+        font-size: 20px;
+    }
+
+    .saidbar_xmark {
+        font-size: 20px;
+        color: #4295E4;
+        padding: 5px;
+        border: 1px solid #4295E4;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+}
+
+@media screen and (max-width: 350px) {
+
+    /* navbar */
+    .navbar_container {
+        width: 270px;
+    }
+
+    /* card carusel */
+    .homecaruselcontainer {
+        width: 270px;
+        overflow: hidden;
+    }
+
+    /* homecarusel */
+    .homesection_1_carusel {
+        width: 270px;
+    }
+
+    .homesection_1_carusel .katta_karusel img {
+        width: 270px;
+        height: 270px;
+    }
+
+    .homesection_1_carusel .katta_karusel .katta_karusel_box2 {
+        width: 270px;
+        height: 170px;
+        padding: 0 20px;
+        gap: 2px !important;
+    }
+
 }

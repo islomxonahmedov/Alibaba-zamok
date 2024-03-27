@@ -5,7 +5,7 @@ import { fetchTargetProduct } from '../redux/slice/CardinfoSlice';
 import { CiHeart, CiStar } from "react-icons/ci";
 import { TiStarFullOutline } from 'react-icons/ti';
 import { IoIosCheckbox } from "react-icons/io";
-import Card from './Card';
+import Card from '../components/Card';
 import calcDis from 'calculate-discount-hojiakbar';
 import { FaAngleDown } from 'react-icons/fa6';
 import { addComment, fetchComments } from '../redux/slice/CommentSlice';
@@ -20,28 +20,30 @@ function Cardinfo() {
     const error = useSelector(state => state.comments.error);
 
     const [activeIndex, setActiveIndex] = useState(null);
-    const [stars, setStars] = useState(0);
     const [mainImage, setMainImage] = useState('');
+    const [starRatings, setStarRatings] = useState({});
+
+    useEffect(() => {
+        const storedRatings = JSON.parse(localStorage.getItem('starRatings'));
+        if (storedRatings) {
+            setStarRatings(storedRatings);
+        }
+    }, []);
 
     useEffect(() => {
         dispatch(fetchTargetProduct(id));
         dispatch3(fetchComments(id));
     }, [dispatch, dispatch3, id]);
 
-    useEffect(() => {
-        const storedStars = localStorage.getItem('stars');
-        if (storedStars) {
-            setStars(parseInt(storedStars));
-        }
-    }, []);
-
     const handleImageClick = (imageUrl) => {
         setMainImage(imageUrl);
     };
 
-    const handleStarClick = (index) => {
-        setStars(index + 1);
-        localStorage.setItem('stars', index + 1);
+    // yulduz uchun
+    const handleStarClick = (id, index) => {
+        const updatedRatings = { ...starRatings, [id]: index + 1 };
+        setStarRatings(updatedRatings);
+        localStorage.setItem('starRatings', JSON.stringify(updatedRatings));
     };
 
     const toggleParagraphVisibility = (index) => {
@@ -78,8 +80,8 @@ function Cardinfo() {
                         <p style={{ color: "#454F5B" }}>JA182765</p>
                         <div style={{ display: "flex", fontSize: "20px" }}>
                             {[...Array(5)].map((_, index) => (
-                                <span key={index} onClick={() => handleStarClick(index)}>
-                                    {index < stars ? <TiStarFullOutline style={{ color: "#F6AB3A" }} /> : <CiStar style={{ color: "#C4CDD5" }} />}
+                                <span key={index} onClick={() => handleStarClick(targetProduct.id, index)}>
+                                    {index < starRatings[targetProduct.id] ? <TiStarFullOutline style={{ color: "#F6AB3A" }} /> : <CiStar style={{ color: "#C4CDD5" }} />}
                                 </span>
                             ))}
                         </div>

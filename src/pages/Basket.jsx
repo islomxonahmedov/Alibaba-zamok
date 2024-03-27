@@ -2,8 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchBasketProducts, addProduct, deleteProduct } from '../redux/slice/BasketSlice';
-import calcDis from '../../node_modules/calculate-discount-hojiakbar/index'
-
 
 function Basket({ product }) {
   const products = useSelector(state => state.basket.products);

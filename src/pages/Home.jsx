@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import Card from "./Card";
+import Card from "../components/Card";
 import Slider from "react-slick";
 import calcDis from "calculate-discount-hojiakbar";
 

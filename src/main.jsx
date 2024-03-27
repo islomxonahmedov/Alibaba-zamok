@@ -9,6 +9,7 @@ import { store } from './redux/store/index.js'
 import Basket from './pages/Basket.jsx'
 import ProfileStatus from './pages/ProfileStatus.jsx'
 import Cardinfo from './pages/Cardinfo.jsx'
+import Katalog from './pages/Katalog.jsx'
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: ":id",
         element: <Cardinfo />,
+      },
+      {
+        path: "katalog",
+        element: <Katalog />,
       }
 
     ]

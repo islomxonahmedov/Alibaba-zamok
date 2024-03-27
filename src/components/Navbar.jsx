@@ -76,6 +76,7 @@ function Navbar() {
             {isHovered && (
                 <div className="navbar_modal">
                     <div className="navbar_modal_1">
+                        <NavLink to={"katalog"}><p>Каталог</p></NavLink>
                         <p>Накладные электронные замки</p>
                         <p>Врезные электронные замки</p>
                         <p>Замки для квартиры</p>
@@ -112,6 +113,9 @@ function Navbar() {
                             </p>
                         </a>
                     </li>
+                    <NavLink to={"katalog"} style={{}}> {activeIndex === 0 && (
+                        <p className='navbartokin' style={{ padding: "10px 10px 10px 20px", borderBottom: '1px solid #55555542' }}>Каталог</p>
+                    )}</NavLink>
                     <NavLink href="#" style={{}}> {activeIndex === 0 && (
                         <p className='navbartokin' style={{ padding: "10px 10px 10px 20px", borderBottom: '1px solid #55555542' }}>Накладные электронные замки</p>
                     )}</NavLink>

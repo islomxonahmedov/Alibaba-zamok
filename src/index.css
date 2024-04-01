@@ -492,14 +492,25 @@ h1 {
     margin: 0 auto;
 }
 
+.katalog2 {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
 .catalogcard {
+    width: 870px;
     display: flex;
     flex-wrap: wrap;
     justify-content: start;
-    gap: 15px;
+    gap: 60px;
     row-gap: 20px;
 }
-.catalogimg{
+
+.catalogimg {
     width: 250px;
     position: relative;
     top: 51px;
@@ -519,15 +530,60 @@ h1 {
     justify-content: space-between;
     padding: 0 20px;
 }
-.catalog_card_name{
+
+.catalog_card_name {
     background-color: #454f5b1e;
     padding: 10px;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
 }
-.podarka{
+
+.podarka {
     padding: 0 20px;
 }
+
+.filterkatalog {
+    width: 300px !important;
+    height: auto    ;
+    padding: 24px;
+    border: 1px solid #C4CDD5;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: #161C24;
+}
+
+.filterboshi {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.filterboshi .filterboshi1 {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.filterboshi .filterboshi1 button {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    border: 1px solid white;
+    padding: 8px 20px;
+}
+
+.filterboshi .filterboshi1 button:hover {
+    border: 1px solid #ADD7FF;
+}
+.filterupflex{
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    font-weight: 500;
+}
+
 
 /* mediya 1250px */
 

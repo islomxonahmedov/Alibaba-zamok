@@ -1,3 +1,4 @@
+// Katalog komponenti
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUsers } from '../redux/slice/usersSlice';
@@ -11,17 +12,25 @@ import { NavLink } from 'react-router-dom';
 import { AiOutlineDoubleLeft, AiOutlineDoubleRight } from "react-icons/ai";
 import { FaAngleDown, FaAngleUp } from 'react-icons/fa6';
 import { IoFilterOutline } from "react-icons/io5";
+import Slider from '@mui/material/Slider';
+function valuetext(value) {
+    return `${value}°C`;
+}
 
 function Katalog() {
     const users = useSelector(state => state.users.users);
     const dispatch = useDispatch();
     const [filterkatalog, setfilterkatalog] = useState(null);
     const [activeIndex, setActiveIndex] = useState(null);
+    const [value, setValue] = useState([0, 10000]);
+    const [sortBy, setSortBy] = useState("default");
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
+    };
 
-
-    // Pagination için state'ler
+    // Pagination uchun state'lar
     const [currentPage, setCurrentPage] = useState(1);
-    const [itemsPerPage] = useState(6); // Her sayfada gösterilecek öğe sayısı
+    const [itemsPerPage] = useState(6); // Har sahifadagi elementlar soni
 
     useEffect(() => {
         dispatch(fetchUsers());
@@ -42,19 +51,19 @@ function Katalog() {
         localStorage.setItem('starRatings', JSON.stringify(updatedRatings));
     };
 
-    // Mevcut sayfada görüntülenecek kullanıcıları belirleme
+    // Joriy sahifadagi foydalanuvchilarni aniqlash
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentUsers = users.slice(indexOfFirstItem, indexOfLastItem);
 
-    // Sayfa değiştirme işlevi
+    // Sahifani o'zgartirish funktsiyasi
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-    // Bir sonraki ve bir önceki sayfa için işlevler
+    // Keyingi va avvalgi sahifalar uchun funktsiyalar
     const nextPage = () => setCurrentPage(currentPage + 1);
     const prevPage = () => setCurrentPage(currentPage - 1);
 
-    // Filtreleri sıfırlama işlevi
+    // Filtrlarni qayta o'rnatish funktsiyasi
     const resetFilters = () => {
         const filterKatalogElement = document.querySelector('.filterkatalog');
         if (filterKatalogElement) {
@@ -68,32 +77,56 @@ function Katalog() {
     const toggleParagraphVisibilityy = (index) => {
         setActiveIndex(index === activeIndex ? null : index);
     };
+    const sortProducts = (a, b) => {
+        switch (sortBy) {
+            case "cheap":
+                return parseFloat(a.price) - parseFloat(b.price);
+            case "expensive":
+                return parseFloat(b.price) - parseFloat(a.price);
+            case "bigDiscount":
+                return parseFloat(b.discount) - parseFloat(a.discount);
+            default:
+                return 0;
+        }
+    };
+    const sortedProducts = [...currentUsers].sort(sortProducts);
 
     return (
         <div className='katalog'>
             <div>
-                <h1>Накладные электронные замки</h1>
+                <h1 style={{ display: "flex", gap: "10px", alignItems: "center", fontSize: "30px" }}>Накладные электронные замки <h5 style={{ fontSize: "18px", marginTop: "4px", fontWeight: "300" }}>({users.length})</h5></h1>
                 <div className="filterboshi">
                     <div className='filterboshi1'>
                         <button onClick={() => toggleParagraphVisibility(0)}>Сбросить фильтры<IoFilterOutline style={{ color: "#4295E4", fontSize: "20px" }} /></button>
                         <button>Электронные кодовые замки <HiMiniXMark style={{ color: "#E44286", fontSize: "20px" }} /></button>
                     </div>
-                    <select style={{ width: "170px" }} className='infoselect' name="" id="">
-                        <option value="salom">Популярности</option>
-                        <option value="salom">Умный замок</option>
-                        <option value="salom">Ты открываешь дверь сам</option>
-                        <option value="salom">Сканером</option>
-                    </select>
+                    <div className='filterpricediskaunt'>
+                        <select style={{ width: "170px",background:"white",outline:"none" }} name="" id="" onChange={(e) => setSortBy(e.target.value)}>
+                            <option value="default">Сортировка</option>
+                            <option value="cheap">Cheap</option>
+                            <option value="expensive">Expensive</option>
+                            <option value="bigDiscount">Big Discount</option>
+                        </select>
+                    </div>
                 </div>
             </div>
             <div className="katalog2">
                 {filterkatalog === 0 && (
-
                     <div className='filterkatalog'>
                         <h2 style={{ fontSize: "32px" }}>Фильтр</h2>
                         <h3 className='filterupflex' onClick={() => toggleParagraphVisibilityy(0)}>Цена{activeIndex === 0 ? <FaAngleUp style={{ fontSize: "20px", color: "#4295E4" }} /> : <FaAngleDown style={{ fontSize: "20px", color: "#938A9F" }} />}</h3>
                         {activeIndex === 0 && (
-                         <div className='range_input'></div>
+                            <div className='range_input'>
+                                <Slider
+                                    style={{ color: "#487B6C" }}
+                                    value={value}
+                                    onChange={handleChange}
+                                    valueLabelDisplay="auto"
+                                    getAriaValueText={valuetext}
+                                    max={10000}
+                                    min={0}
+                                />
+                            </div>
                         )}
                         <h3 className='filterupflex' onClick={() => toggleParagraphVisibilityy(1)}>Особенности{activeIndex === 1 ? <FaAngleUp style={{ fontSize: "20px", color: "#4295E4" }} /> : <FaAngleDown style={{ fontSize: "20px", color: "#938A9F" }} />}</h3>
                         {activeIndex === 1 && (
@@ -115,7 +148,7 @@ function Katalog() {
                 )}
                 <div>
                     <div className='catalogcard'>
-                        {currentUsers.map(user => (
+                        {sortedProducts.map(user => (
                             <NavLink to={`/${user.id}`} key={user.id}>
                                 <div className="catalogcartcontainer">
                                     <img className='catalogimg' src={user.img} alt="" />
@@ -152,7 +185,7 @@ function Katalog() {
                             </NavLink>
                         ))}
                     </div>
-                    {/* Sayfalama düğmeleri */}
+                    {/* Sayfalama tugmalar */}
                     <div style={{ display: "flex", justifyContent: "center", marginTop: "30px", gap: "30px" }}>
                         <button onClick={prevPage} disabled={currentPage === 1}><AiOutlineDoubleLeft /></button>
                         <Pagination
@@ -168,7 +201,7 @@ function Katalog() {
     );
 }
 
-// Sayfalama düğmelerini oluşturan bileşen
+// Sahifalash tugmalarini yaratuvchi komponent
 const Pagination = ({ itemsPerPage, totalItems, paginate }) => {
     const pageNumbers = [];
 

@@ -6,10 +6,9 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Home from './pages/Home.jsx'
 import { Provider } from 'react-redux'
 import { store } from './redux/store/index.js'
-import Basket from './pages/Basket.jsx'
-import ProfileStatus from './pages/ProfileStatus.jsx'
 import Cardinfo from './pages/Cardinfo.jsx'
 import Katalog from './pages/Katalog.jsx'
+import Basket from './pages/Basket.jsx'
 
 const router = createBrowserRouter([
   {
@@ -21,20 +20,16 @@ const router = createBrowserRouter([
         element: <Home />
       },
       {
-        path: "basket",
-        element: <Basket />,
-      },
-      {
-        path: "profile-status",
-        element: <ProfileStatus />
-      },
-      {
         path: ":id",
         element: <Cardinfo />,
       },
       {
         path: "katalog",
         element: <Katalog />,
+      },
+      {
+        path: "basket",
+        element: <Basket />,
       }
 
     ]

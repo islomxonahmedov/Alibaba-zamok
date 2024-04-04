@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink, Outlet, useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTargetProduct } from '../redux/slice/CardinfoSlice';
 import { CiHeart, CiStar } from "react-icons/ci";
@@ -8,17 +8,13 @@ import { IoIosCheckbox } from "react-icons/io";
 import Card from '../components/Card';
 import calcDis from 'calculate-discount-hojiakbar';
 import { FaAngleDown } from 'react-icons/fa6';
-import { addComment, fetchComments } from '../redux/slice/CommentSlice';
+import { addItem } from '../redux/slice/BasketSlice';
 
 function Cardinfo() {
     const { id } = useParams();
     const dispatch = useDispatch();
-    const dispatch3 = useDispatch();
     const targetProduct = useSelector(state => state.targetProduct.targetProduct);
     const status = useSelector(state => state.targetProduct.status);
-    const comments = useSelector(state => state.comments.comments);
-    const error = useSelector(state => state.comments.error);
-
     const [activeIndex, setActiveIndex] = useState(null);
     const [mainImage, setMainImage] = useState('');
     const [starRatings, setStarRatings] = useState({});
@@ -32,14 +28,12 @@ function Cardinfo() {
 
     useEffect(() => {
         dispatch(fetchTargetProduct(id));
-        dispatch3(fetchComments(id));
-    }, [dispatch, dispatch3, id]);
+    }, [dispatch, id]);
 
     const handleImageClick = (imageUrl) => {
         setMainImage(imageUrl);
     };
 
-    // yulduz uchun
     const handleStarClick = (id, index) => {
         const updatedRatings = { ...starRatings, [id]: index + 1 };
         setStarRatings(updatedRatings);
@@ -49,9 +43,9 @@ function Cardinfo() {
     const toggleParagraphVisibility = (index) => {
         setActiveIndex(index === activeIndex ? null : index);
     };
-
-    const handleAddComment = (comment) => {
-        dispatch(addComment({ productId: id, comment }));
+    const dispatchr = useDispatch();
+    const handleAddProduct = (product) => {
+        dispatchr(addItem(product));
     };
 
     if (status === 'loading') {
@@ -120,7 +114,7 @@ function Cardinfo() {
                         <h1>{Math.round(calcDis(targetProduct.price, targetProduct.discount))}₽ </h1><del>{Math.round(targetProduct.price)}₽</del>
                     </div>
                     <div className="b7">
-                        <button className='globalbutton'>Купить</button>
+                        <button onClick={() => handleAddProduct(targetProduct)} className='globalbutton'>Купить</button>
                         <button className='cardinfolike'><div><CiHeart style={{ fontSize: "30px" }} /></div> В избранное</button>
                     </div>
                     <div className="b8">

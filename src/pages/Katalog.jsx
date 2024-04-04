@@ -13,31 +13,50 @@ import { AiOutlineDoubleLeft, AiOutlineDoubleRight } from "react-icons/ai";
 import { FaAngleDown, FaAngleUp } from 'react-icons/fa6';
 import { IoFilterOutline } from "react-icons/io5";
 import Slider from '@mui/material/Slider';
+import Card from '../components/Card';
 function valuetext(value) {
     return `${value}°C`;
 }
 
 function Katalog() {
+    // usersni olib kelish
     const users = useSelector(state => state.users.users);
+
+    // dispatch                                                                                                                                                                                                             
     const dispatch = useDispatch();
+
+    // filter modal ochilishi
     const [filterkatalog, setfilterkatalog] = useState(null);
+
+    // h3-lar chilishi
     const [activeIndex, setActiveIndex] = useState(null);
+
+    // rang state
     const [value, setValue] = useState([0, 10000]);
+
+    // filter yani price bo'yicha option
     const [sortBy, setSortBy] = useState("default");
+
+    // rang
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
 
     // Pagination uchun state'lar
     const [currentPage, setCurrentPage] = useState(1);
-    const [itemsPerPage] = useState(6); // Har sahifadagi elementlar soni
 
+    // bitta pagedan qancha mahsulot borligi
+    const [itemsPerPage] = useState(6);
+
+    // malumotlarni effectga solish
     useEffect(() => {
         dispatch(fetchUsers());
     }, [dispatch]);
 
+    // yulduzga state
     const [starRatings, setStarRatings] = useState({});
 
+    // yulduzni effektga solish
     useEffect(() => {
         const storedRatings = JSON.parse(localStorage.getItem('starRatings'));
         if (storedRatings) {
@@ -45,6 +64,7 @@ function Katalog() {
         }
     }, []);
 
+    // yulduzni local storig ga saqlash
     const handleStarClick = (id, index) => {
         const updatedRatings = { ...starRatings, [id]: index + 1 };
         setStarRatings(updatedRatings);
@@ -71,12 +91,17 @@ function Katalog() {
         }
     };
 
+    // filter ni ochilish funksiyasi
     const toggleParagraphVisibility = (index) => {
         setfilterkatalog(index === filterkatalog ? null : index);
     };
+
+    // h3 larni ochish funksiyasi
     const toggleParagraphVisibilityy = (index) => {
         setActiveIndex(index === activeIndex ? null : index);
     };
+
+    // sortby funksiyasi
     const sortProducts = (a, b) => {
         switch (sortBy) {
             case "cheap":
@@ -89,23 +114,25 @@ function Katalog() {
                 return 0;
         }
     };
+
+    // malumotlarni bitta o'zgaruvchiga tenglash
     const sortedProducts = [...currentUsers].sort(sortProducts);
 
     return (
         <div className='katalog'>
             <div>
-                <h1 style={{ display: "flex", gap: "10px", alignItems: "center", fontSize: "30px" }}>Накладные электронные замки <h5 style={{ fontSize: "18px", marginTop: "4px", fontWeight: "300" }}>({users.length})</h5></h1>
+                <h1 className='katslogh1' style={{ display: "flex", gap: "10px", alignItems: "center", fontSize: "30px" }}>Накладные электронные замки <h5 style={{ fontSize: "18px", marginTop: "4px", fontWeight: "300" }}>({users.length})</h5></h1>
                 <div className="filterboshi">
                     <div className='filterboshi1'>
                         <button onClick={() => toggleParagraphVisibility(0)}>Сбросить фильтры<IoFilterOutline style={{ color: "#4295E4", fontSize: "20px" }} /></button>
-                        <button>Электронные кодовые замки <HiMiniXMark style={{ color: "#E44286", fontSize: "20px" }} /></button>
+                        <button className='buuuton'>Электронные кодовые замки <HiMiniXMark style={{ color: "#E44286", fontSize: "20px" }} /></button>
                     </div>
                     <div className='filterpricediskaunt'>
-                        <select style={{ width: "170px",background:"white",outline:"none" }} name="" id="" onChange={(e) => setSortBy(e.target.value)}>
+                        <select className='selectkatalog' style={{ width: "170px", background: "white", outline: "none" }} name="" id="" onChange={(e) => setSortBy(e.target.value)}>
                             <option value="default">Сортировка</option>
-                            <option value="cheap">Cheap</option>
-                            <option value="expensive">Expensive</option>
-                            <option value="bigDiscount">Big Discount</option>
+                            <option value="cheap">Дешевый</option>
+                            <option value="expensive">Дорогой</option>
+                            <option value="bigDiscount">Большая скидка</option>
                         </select>
                     </div>
                 </div>
@@ -113,7 +140,10 @@ function Katalog() {
             <div className="katalog2">
                 {filterkatalog === 0 && (
                     <div className='filterkatalog'>
-                        <h2 style={{ fontSize: "32px" }}>Фильтр</h2>
+                        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                            <h2 style={{ fontSize: "32px" }}>Фильтр</h2>
+                            <h3 className='xmark' onClick={() => setfilterkatalog(null)}><HiMiniXMark style={{ fontSize: "20px", cursor: "pointer" }} /></h3>
+                        </div>
                         <h3 className='filterupflex' onClick={() => toggleParagraphVisibilityy(0)}>Цена{activeIndex === 0 ? <FaAngleUp style={{ fontSize: "20px", color: "#4295E4" }} /> : <FaAngleDown style={{ fontSize: "20px", color: "#938A9F" }} />}</h3>
                         {activeIndex === 0 && (
                             <div className='range_input'>
@@ -146,6 +176,7 @@ function Katalog() {
                         )}
                     </div>
                 )}
+
                 <div>
                     <div className='catalogcard'>
                         {sortedProducts.map(user => (
@@ -196,6 +227,9 @@ function Katalog() {
                         <button onClick={nextPage} disabled={currentPage === Math.ceil(users.length / itemsPerPage)}><AiOutlineDoubleRight /></button>
                     </div>
                 </div>
+            </div>
+            <div className='katalogkompcard'>
+                <Card />
             </div>
         </div>
     );

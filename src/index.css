@@ -545,7 +545,7 @@ h1 {
 
 .filterkatalog {
     width: 300px !important;
-    height: auto    ;
+    height: auto;
     padding: 24px;
     border: 1px solid #C4CDD5;
     display: flex;
@@ -578,13 +578,15 @@ h1 {
 .filterboshi .filterboshi1 button:hover {
     border: 1px solid #ADD7FF;
 }
-.filterupflex{
+
+.filterupflex {
     display: flex;
     justify-content: space-between;
     font-size: 16px;
     font-weight: 500;
 }
-.filterpricediskaunt{
+
+.filterpricediskaunt {
     border: 1px solid #C4CDD5;
     padding: 5px 10px;
 }
@@ -724,6 +726,16 @@ h1 {
         font-size: 15px !important;
     }
 
+    .katalog {
+        width: 900px;
+        margin-top: 20px;
+    }
+
+    .catalogcard {
+        width: 570px;
+        justify-content: center;
+        gap: 30px;
+    }
 }
 
 /* mediaya 1000px */
@@ -876,6 +888,45 @@ h1 {
     .homecontainercaruselparent .card_p_padding .price del {
         font-size: 18px;
     }
+
+    .katalog {
+        width: 700px;
+        margin-top: 20px;
+    }
+
+    .catalogcard {
+        width: 100%;
+        justify-content: space-evenly;
+    }
+
+    .katalog2 {
+        gap: 10px;
+    }
+
+    .filterkatalog {
+        position: absolute;
+        background-color: white;
+        width: 100% !important;
+        top: 70px;
+        z-index: 200;
+    }
+
+    .filterupflex {
+        width: 300px;
+    }
+
+    .range_input {
+        width: 270px !important;
+        padding: 0 0 0 20px;
+    }
+
+    .filterboshi {
+        font-size: 14px;
+    }
+
+    .filterboshi1 {
+        gap: 0px !important;
+    }
 }
 
 /* mediya 750px */
@@ -1022,6 +1073,34 @@ h1 {
     .katalog_hover {
         display: none !important;
     }
+
+    .katalog {
+        width: 505px;
+        margin-top: 10px;
+    }
+
+    .catalogcard {
+        width: 100%;
+        justify-content: space-evenly;
+        gap: 5px;
+        row-gap: 20px;
+    }
+
+    .filterupflex {
+        width: 300px;
+    }
+
+    .filterboshi .filterboshi1 .buuuton {
+        display: none;
+    }
+
+    .filterkatalog {
+        top: 60px;
+    }
+
+    .katslogh1 {
+        font-size: 25px !important;
+    }
 }
 
 
@@ -1117,6 +1196,23 @@ h1 {
         cursor: pointer;
     }
 
+    .katalog {
+        width: 400px;
+        margin-top: 10px;
+    }
+
+    .katslogh1 {
+        font-size: 20px !important;
+    }
+
+    .katalogkompcard {
+        width: 400px;
+        overflow: hidden;
+    }
+
+    .selectkatalog {
+        width: 110px !important;
+    }
 }
 
 @media screen and (max-width: 450px) {
@@ -1175,6 +1271,37 @@ h1 {
         cursor: pointer;
     }
 
+    .katalog {
+        width: 300px;
+        margin-top: 10px;
+    }
+
+    .katslogh1 {
+        font-size: 20px !important;
+    }
+
+    .katalogkompcard {
+        width: 300px;
+    }
+
+    .selectkatalog {
+        width: 110px !important;
+    }
+
+    .filterboshi .filterboshi1 button {
+        width: 150px !important;
+        padding: 0px;
+        gap: 3px;
+    }
+
+    .filterupflex {
+        width: 270px;
+    }
+
+    .range_input {
+        width: 240px !important;
+        padding: 0 0 0 20px;
+    }
 }
 
 

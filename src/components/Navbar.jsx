@@ -70,7 +70,7 @@ function Navbar() {
                         <p>+(998) 77 095 00 25</p>
                     </div>
                     <div><CiHeart className="iconblue" style={{ fontSize: "30px" }} /></div>
-                    <div><CiShoppingCart className="iconblue" style={{ fontSize: "30px" }} /></div>
+                    <NavLink to={"basket"}><div><CiShoppingCart className="iconblue" style={{ fontSize: "30px" }} /></div></NavLink>
                 </div>
             </div>
             {isHovered && (

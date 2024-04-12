@@ -591,6 +591,117 @@ h1 {
     padding: 5px 10px;
 }
 
+.basketlenght {
+    position: relative;
+    background-color: #4295E4;
+    padding: 0 6px;
+    color: white;
+    border-radius: 3px;
+    right: 6px;
+}
+
+.caunter {
+    display: flex;
+    align-items: center;
+}
+
+.caunterlar {
+    padding: 0 10px;
+    background-color: #ffffff;
+    font-size: 22px;
+    color: #181818;
+    cursor: pointer;
+    user-select: none;
+}
+
+.caunterlar:hover {
+    color: #C4CDD5;
+}
+
+.basketcontainer {
+    width: 1200px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.basketcardparent {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.basketcard {
+    width: 900px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0 auto;
+}
+
+.basketcard_flex {
+    display: flex;
+    width: 400px;
+    align-items: center;
+}
+
+.imgbasket {
+    width: 136px;
+}
+
+.basketnamevscaunt {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.basketdeleteprice {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.buttonbasket1 {
+    background-color: #4295E4;
+    color: white;
+    padding: 10px 60px;
+}
+
+.basketbutton {
+    width: 550px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.basketbutton2 {
+    width: 550px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.buttonbasket2 {
+    border: 1px solid #ADD7FF;
+    padding: 10px 40px;
+}
+
+.itagobasket {
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.buttonkatalog1 {
+    border: 1px solid #4295E4;
+    margin: 10px;
+    padding: 5px 40px;
+    transition: all 1s;
+}
+
+.buttonkatalog1:hover {
+    background-color: #4295E4;
+    color: white;
+}
 
 /* mediya 1250px */
 
@@ -736,6 +847,157 @@ h1 {
         justify-content: center;
         gap: 30px;
     }
+
+    .info_container {
+        width: 900px;
+    }
+
+    .info_container .info_c_tepa {
+        margin-top: 30px;
+    }
+
+    .info_container .info_c_tepa .info_c_b1 {
+        width: 400px;
+        height: 510px;
+    }
+
+    .info_container .info_c_tepa .info_c_b1 .cardi_rasim1 img {
+        width: 400px !important;
+    }
+
+    .info_container .info_c_tepa .info_c_b1 .cardi_rasim2 img {
+        width: 90px;
+        border: 1px solid #d1cdcd;
+    }
+
+    .info_container .info_c_tepa .info_c_b1 .cardi_rasim2 img:hover {
+        border: 1px solid #a19f9f;
+    }
+
+    .info_container .info_c_tepa .info_c_b2 {
+        width: 470px;
+        gap: 3px;
+        font-size: 15px !important;
+    }
+
+    .info_container .info_c_tepa .info_c_b2 .b1 {
+        gap: 10px;
+    }
+
+    .info_container .info_c_tepa .info_c_b2 .b2 {
+        font-size: 25px;
+    }
+
+    .info_container .info_c_tepa .info_c_b2 .b4 {
+        gap: 10px;
+    }
+
+    .info_container .info_c_tepa .info_c_b2 .b5 {
+        margin-top: 10px;
+        display: flex;
+        gap: 43px;
+    }
+
+    .info_container .info_c_tepa .info_c_b2 .b5 div {
+        gap: 5px;
+    }
+
+    .info_container .info_c_tepa .info_c_b2 .b6 {
+        gap: 15px;
+    }
+
+    .info_container .info_c_tepa .info_c_b2 .b6 del {
+        color: #adaaaa;
+        font-size: 25px;
+        font-weight: 200;
+    }
+
+    .infoselect {
+        width: 270px;
+        padding: 7px 8px;
+    }
+
+    .info_container .info_c_tepa .info_c_b2 .b7 {
+        display: flex;
+        gap: 50px;
+    }
+
+    .globalbutton {
+        width: 200px;
+        padding: 7px 0;
+    }
+
+    .cardinfolike {
+        gap: 10px;
+
+    }
+
+    .info_container .info_c_tepa .info_c_b2 .b8 h3 {
+        padding: 10px 1px;
+    }
+
+    .info_container .info_c_tepa .info_c_b2 .b8 p {
+        background-color: #F6F7F9;
+        padding: 1px;
+    }
+
+    .pastcardinfo {
+        gap: 25px;
+        font-size: 17px;
+        margin-top: 1px;
+        margin-bottom: 20px;
+    }
+
+    .xaraktercontainer {
+        display: flex;
+        justify-content: space-between;
+        font-size: 14px !important;
+    }
+
+    .xaraktercontainer .xarakter_b1 {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .xaraktercontainer .xarakter_b1 .div {
+        width: 430px;
+        display: flex;
+        align-items: center;
+        background-color: #FAFAFA;
+        padding: 16px 12px;
+        justify-content: space-between;
+    }
+
+    .xaraktercontainer .xarakter_b1 .div p {
+        width: 130px;
+    }
+
+    .xaraktercontainer .xarakter_b1 .div1 {
+        width: 430px;
+        padding: 10px 12px;
+        justify-content: space-between;
+    }
+
+    .xaraktercontainer .xarakter_b1 .div1 p {
+        width: 130px;
+    }
+
+    .opisanacontainer {
+        display: flex;
+    }
+
+    .opisanacontainer .opisana_box1 {
+        width: 450px;
+        gap: 5px;
+        font-size: 15px !important;
+    }
+
+    .opisanacontainer .opisana_box2 img {
+        width: 400px;
+        height: 550px;
+    }
+
 }
 
 /* mediaya 1000px */
@@ -927,6 +1189,70 @@ h1 {
     .filterboshi1 {
         gap: 0px !important;
     }
+
+
+
+    .info_container {
+        width: 700px;
+    }
+
+    .info_container .info_c_tepa {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+    }
+
+    .info_container .info_c_tepa .info_c_b2 {
+        width: 400px;
+        gap: 3px;
+        font-size: 15px !important;
+    }
+
+    .pastcardinfo {
+        gap: 90px;
+        font-size: 17px;
+        margin-top: 1px;
+        margin-bottom: 20px;
+        justify-content: center;
+    }
+
+    .xaraktercontainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column-reverse;
+        font-size: 14px !important;
+    }
+
+    .xaraktercontainer .xarakter_b1 {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .xaraktercontainer .xarakter_b1 .div1 {
+        width: 430px;
+        padding: 10px 12px;
+        justify-content: space-between;
+    }
+
+    .opisanacontainer {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .opisanacontainer .opisana_box1 {
+        width: 450px;
+        gap: 5px;
+        font-size: 15px !important;
+    }
+
+    .opisanacontainer .opisana_box2 img {
+        width: 300px;
+        height: 400px;
+    }
 }
 
 /* mediya 750px */
@@ -1101,6 +1427,10 @@ h1 {
     .katslogh1 {
         font-size: 25px !important;
     }
+
+    .info_container {
+        width: 500px;
+    }
 }
 
 
@@ -1213,6 +1543,68 @@ h1 {
     .selectkatalog {
         width: 110px !important;
     }
+
+    .info_container {
+        width: 400px;
+    }
+
+    .info_container .info_c_tepa {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+    }
+
+    .info_container .info_c_tepa .info_c_b2 {
+        width: 400px;
+        gap: 3px;
+        font-size: 15px !important;
+    }
+
+    .pastcardinfo {
+        gap: 50px;
+    }
+
+    .xaraktercontainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column-reverse;
+        font-size: 14px !important;
+    }
+
+    .xaraktercontainer .xarakter_b1 {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .xaraktercontainer .xarakter_b1 .div1 {
+        width: 430px;
+        padding: 10px 12px;
+        justify-content: space-between;
+    }
+
+    .opisanacontainer {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .opisanacontainer .opisana_box2 img {
+        width: 300px;
+        height: 400px;
+    }
+
+    .info_container .info_c_tepa .info_c_b2 .b5 {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .cardinfocarusel {
+        width: 400px;
+        overflow: hidden;
+    }
 }
 
 @media screen and (max-width: 450px) {
@@ -1301,6 +1693,142 @@ h1 {
     .range_input {
         width: 240px !important;
         padding: 0 0 0 20px;
+    }
+
+    .info_container {
+        width: 300px;
+    }
+
+    .cardinfocarusel {
+        width: 300px;
+        overflow: hidden;
+    }
+
+    .info_container .info_c_tepa .info_c_b1 {
+        width: 300px;
+        height: 400px;
+        gap: 10px;
+    }
+
+    .info_container .info_c_tepa .info_c_b1 .cardi_rasim1 img {
+        width: 300px;
+    }
+
+    .info_container .info_c_tepa .info_c_b1 .cardi_rasim2 img {
+        width: 70px;
+    }
+
+    .info_container .info_c_tepa .info_c_b2 {
+        width: 300px;
+        gap: 3px;
+        font-size: 14px !important;
+    }
+
+    .info_container .info_c_tepa .info_c_b2 .b1 {
+        gap: 5px;
+    }
+
+    .info_container .info_c_tepa .info_c_b2 .b2 {
+        font-size: 17px;
+        font-weight: 500;
+    }
+
+    .info_container .info_c_tepa .info_c_b2 .b4 {
+        display: flex;
+        align-items: center;
+        gap: 1px;
+        font-size: 12px;
+    }
+
+    .info_container .info_c_tepa .info_c_b2 .b5 {
+        margin-top: 1px;
+        gap: 2px;
+    }
+
+    .info_container .info_c_tepa .info_c_b2 .b5 div {
+        gap: 2px;
+    }
+
+    .info_container .info_c_tepa .info_c_b2 .b6 {
+        gap: 10px;
+        font-size: 20px;
+    }
+
+    .info_container .info_c_tepa .info_c_b2 .b6 del {
+        font-size: 20px;
+        font-weight: 200;
+    }
+
+    .infoselect {
+        width: 300px;
+    }
+
+    .info_container .info_c_tepa .info_c_b2 .b7 {
+        display: flex;
+        gap: 10px;
+    }
+
+    .globalbutton {
+        width: 140px;
+    }
+
+    .cardinfolike {
+        gap: 10px;
+    }
+
+    .pastcardinfo {
+        gap: 30px;
+        font-size: 15px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .pastcardinfo a {
+        padding: 14px 0;
+    }
+
+    .xaraktercontainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column-reverse;
+        font-size: 14px !important;
+    }
+
+    .xaraktercontainer .xarakter_b1 {
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+    }
+
+    .xaraktercontainer .xarakter_b1 .div1 {
+        width: 300px;
+        padding: 4px 12px;
+        justify-content: space-between;
+    }
+
+    .xaraktercontainer .xarakter_b1 .div {
+        width: 300px;
+        padding: 4px 12px;
+        justify-content: space-between;
+    }
+
+    .opisanacontainer {
+        width: 300px;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .opisanacontainer .opisana_box2 img {
+        width: 300px;
+        height: 400px;
+    }
+
+    .opisanacontainer .opisana_box1 {
+        width: 300px;
+        gap: 5px;
+        font-size: 14px !important;
     }
 }
 

@@ -9,6 +9,7 @@ import Card from '../components/Card';
 import calcDis from 'calculate-discount-hojiakbar';
 import { FaAngleDown } from 'react-icons/fa6';
 import { addItem } from '../redux/slice/BasketSlice';
+import Swal from 'sweetalert2';
 
 function Cardinfo() {
     const { id } = useParams();
@@ -45,8 +46,44 @@ function Cardinfo() {
     };
     const dispatchr = useDispatch();
     const handleAddProduct = (product) => {
-        dispatchr(addItem(product));
+        // Savatchadagi mahsulotlar ro'yxatini Local Storage dan yuklash
+        const basketItems = JSON.parse(localStorage.getItem('basketItems')) || [];
+
+        // Mahsulot savatchada mavjudmi tekshirish
+        const isProductExists = basketItems.some(item => item.id === product.id);
+
+        if (isProductExists) {
+            Swal.fire("Товар уже в корзине");
+        } else {
+            if (product.status === true) { // Agar mahsulot statusi true bo'lsa
+                // Mahsulotni savatchaga qo'shish
+                dispatch(addItem(product));
+                localStorage.setItem('basketItems', JSON.stringify([...basketItems, product]));
+
+                // Ular to'g'risida xabar chiqarish
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.onmouseenter = Swal.stopTimer;
+                        toast.onmouseleave = Swal.resumeTimer;
+                    }
+                });
+                Toast.fire({
+                    icon: "success",
+                    title: "Товар успешно добавлен"
+                });
+            } else {
+                Swal.fire("Этого товара в данный момент нет в наличии"); // Agar mahsulot statusi false bo'lsa
+            }
+        }
     };
+
+
+
 
     if (status === 'loading') {
         return <div>Loading...</div>;
@@ -228,7 +265,7 @@ function Cardinfo() {
                     </div>
                 )}
             </div>
-            <div>
+            <div className='cardinfocarusel'>
                 <Card />
             </div>
         </div>

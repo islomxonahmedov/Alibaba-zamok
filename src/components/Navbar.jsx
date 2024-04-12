@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from '../../public/img/Logo.svg';
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { CiHeart } from "react-icons/ci";
@@ -15,6 +15,12 @@ import { NavLink } from 'react-router-dom';
 
 function Navbar() {
     const users = useSelector(state => state.users.users);
+    const [basketItems, setBasketItems] = useState([]);
+
+    useEffect(() => {
+        const storedItems = JSON.parse(localStorage.getItem('basketItems')) || [];
+        setBasketItems(storedItems);
+    }, []);
     const [isHovered, setIsHovered] = useState(false);
     const [activeIndex, setActiveIndex] = useState(null);
 
@@ -47,7 +53,7 @@ function Navbar() {
             <div className="navbar_container">
                 <div className="navbar_containerbox_1">
                     <div className="navbar_box1">
-                        <img src={logo} alt="" />
+                        <NavLink to={"/"}><img src={logo} alt="" /></NavLink>
                     </div>
                     <div className="navbar_box2">
                         <p>Главная</p>
@@ -70,7 +76,12 @@ function Navbar() {
                         <p>+(998) 77 095 00 25</p>
                     </div>
                     <div><CiHeart className="iconblue" style={{ fontSize: "30px" }} /></div>
-                    <NavLink to={"basket"}><div><CiShoppingCart className="iconblue" style={{ fontSize: "30px" }} /></div></NavLink>
+                    <NavLink to="/basket">
+                        <div style={{display:"flex",alignItems:"center"}}>
+                            <CiShoppingCart className="iconblue" style={{ fontSize: "30px" }} />
+                            <span className='basketlenght'>{basketItems.length}</span>
+                        </div>
+                    </NavLink>
                 </div>
             </div>
             {isHovered && (

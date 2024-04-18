@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addItem } from '../redux/slice/BasketSlice';
+import { addItem} from '../redux/slice/BasketSlice';
 import Card from "../components/Card";
 import Slider from "react-slick";
 import calcDis from "calculate-discount-hojiakbar";

@@ -8,7 +8,6 @@ import { CiGift } from "react-icons/ci";
 import { IoIosPricetags } from "react-icons/io";
 import Slider from 'react-slick';
 import { NavLink } from 'react-router-dom';
-import { FaChevronRight } from "react-icons/fa6";
 
 function Card() {
     const users = useSelector(state => state.users.users);

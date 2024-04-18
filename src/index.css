@@ -702,6 +702,15 @@ h1 {
     background-color: #4295E4;
     color: white;
 }
+.likecontainer{
+    width: 1200px !important;
+    margin: 0 auto;
+}
+.basketcardparent2{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+}
 
 /* mediya 1250px */
 
@@ -1697,7 +1706,7 @@ h1 {
 
     .info_container {
         width: 300px;
-    }
+     }
 
     .cardinfocarusel {
         width: 300px;

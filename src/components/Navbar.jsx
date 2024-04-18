@@ -75,7 +75,7 @@ function Navbar() {
                         <BsFillTelephoneFill className="iconblue" style={{ fontSize: "25px" }} />
                         <p>+(998) 77 095 00 25</p>
                     </div>
-                    <div><CiHeart className="iconblue" style={{ fontSize: "30px" }} /></div>
+                    <NavLink to={"like"}><div><CiHeart className="iconblue" style={{ fontSize: "30px" }} /></div></NavLink>
                     <NavLink to="/basket">
                         <div style={{display:"flex",alignItems:"center"}}>
                             <CiShoppingCart className="iconblue" style={{ fontSize: "30px" }} />

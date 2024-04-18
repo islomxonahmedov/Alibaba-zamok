@@ -9,9 +9,11 @@ import Card from '../components/Card';
 import calcDis from 'calculate-discount-hojiakbar';
 import { FaAngleDown } from 'react-icons/fa6';
 import { addItem } from '../redux/slice/BasketSlice';
+import { addItemlike } from '../redux/slice/LikeSlice';
 import Swal from 'sweetalert2';
+import { HiHeart } from 'react-icons/hi2';
 
-function Cardinfo() {
+function Cardinfo({ product, isLiked }) {
     const { id } = useParams();
     const dispatch = useDispatch();
     const targetProduct = useSelector(state => state.targetProduct.targetProduct);
@@ -44,23 +46,19 @@ function Cardinfo() {
     const toggleParagraphVisibility = (index) => {
         setActiveIndex(index === activeIndex ? null : index);
     };
-    const dispatchr = useDispatch();
-    const handleAddProduct = (product) => {
-        // Savatchadagi mahsulotlar ro'yxatini Local Storage dan yuklash
-        const basketItems = JSON.parse(localStorage.getItem('basketItems')) || [];
 
-        // Mahsulot savatchada mavjudmi tekshirish
+    const dispatchAddProduct = useDispatch();
+    const handleAddProduct = (product) => {
+        const basketItems = JSON.parse(localStorage.getItem('basketItems')) || [];
         const isProductExists = basketItems.some(item => item.id === product.id);
 
         if (isProductExists) {
             Swal.fire("Товар уже в корзине");
         } else {
-            if (product.status === true) { // Agar mahsulot statusi true bo'lsa
-                // Mahsulotni savatchaga qo'shish
-                dispatch(addItem(product));
+            if (product.status === true) {
+                dispatchAddProduct(addItem(product));
                 localStorage.setItem('basketItems', JSON.stringify([...basketItems, product]));
 
-                // Ular to'g'risida xabar chiqarish
                 const Toast = Swal.mixin({
                     toast: true,
                     position: "top-end",
@@ -77,13 +75,42 @@ function Cardinfo() {
                     title: "Товар успешно добавлен"
                 });
             } else {
-                Swal.fire("Этого товара в данный момент нет в наличии"); // Agar mahsulot statusi false bo'lsa
+                Swal.fire("Этого товара в данный момент нет в наличии");
             }
         }
     };
 
+    const handleAddLike = (product) => {
+        const likeitem = JSON.parse(localStorage.getItem('likeitem')) || [];
+        const isProductExists = likeitem.some(item => item.id === product.id);
 
+        if (isProductExists) {
+            Swal.fire("Товар уже в Hравиться");
+        } else {
+            if (product.status === true || true) {
+                dispatchAddProduct(addItem(product));
+                localStorage.setItem('likeitem', JSON.stringify([...likeitem, product]));
 
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.onmouseenter = Swal.stopTimer;
+                        toast.onmouseleave = Swal.resumeTimer;
+                    }
+                });
+                Toast.fire({
+                    icon: "success",
+                    title: "Товар успешно добавлен"
+                });
+            } else {
+                Swal.fire("Этого товара в данный момент нет в наличии");
+            }
+        }
+    };
 
     if (status === 'loading') {
         return <div>Loading...</div>;
@@ -92,6 +119,7 @@ function Cardinfo() {
     if (status === 'failed') {
         return <div>Error: {error}</div>;
     }
+
 
 
     return (
@@ -152,7 +180,7 @@ function Cardinfo() {
                     </div>
                     <div className="b7">
                         <button onClick={() => handleAddProduct(targetProduct)} className='globalbutton'>Купить</button>
-                        <button className='cardinfolike'><div><CiHeart style={{ fontSize: "30px" }} /></div> В избранное</button>
+                        <button onClick={() => handleAddLike(targetProduct)} className='cardinfolike'><div><HiHeart /></div> В избранное</button>
                     </div>
                     <div className="b8">
                         <h3 style={{ background: activeIndex === 0 ? '#F6F7F9' : 'white' }} onClick={() => toggleParagraphVisibility(0)}>Оплата<FaAngleDown style={{ fontSize: "20px" }} /></h3>

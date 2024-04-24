@@ -16,45 +16,9 @@ function Basket() {
   const calculateTotalPrice = (items) => {
     let total = 0;
     items.forEach(item => {
-      total += item.price * item.quantity;
+      total += item.price * item.count;
     });
     setTotalPrice(total);
-  };
-
-  const handleQuantityChange = (id, quantity) => {
-    const updatedItems = basketItems.map(item => {
-      if (item.id === id) {
-        return { ...item, quantity: parseInt(quantity) };
-      }
-      return item;
-    });
-    setBasketItems(updatedItems);
-    localStorage.setItem('basketItems', JSON.stringify(updatedItems));
-    calculateTotalPrice(updatedItems);
-  };
-
-  const handleIncrement = (id) => {
-    const updatedItems = basketItems.map(item => {
-      if (item.id === id) {
-        return { ...item, quantity: item.quantity + 1 };
-      }
-      return item;
-    });
-    setBasketItems(updatedItems);
-    localStorage.setItem('basketItems', JSON.stringify(updatedItems));
-    calculateTotalPrice(updatedItems);
-  };
-
-  const handleDecrement = (id) => {
-    const updatedItems = basketItems.map(item => {
-      if (item.id === id && item.quantity > 1) {
-        return { ...item, quantity: item.quantity - 1 };
-      }
-      return item;
-    });
-    setBasketItems(updatedItems);
-    localStorage.setItem('basketItems', JSON.stringify(updatedItems));
-    calculateTotalPrice(updatedItems);
   };
 
   const handleDelete = (id) => {
@@ -93,11 +57,33 @@ function Basket() {
             console.log("I was closed by the timer");
           }
         });
-
       }
     });
   };
 
+  const handleIncrement = (id) => {
+    const updatedItems = basketItems.map(item => {
+      if (item.id === id) {
+        return { ...item, count: item.count + 1 };
+      }
+      return item;
+    });
+    setBasketItems(updatedItems);
+    localStorage.setItem('basketItems', JSON.stringify(updatedItems));
+    calculateTotalPrice(updatedItems);
+  };
+
+  const handleDecrement = (id) => {
+    const updatedItems = basketItems.map(item => {
+      if (item.id === id && item.count > 1) {
+        return { ...item, count: item.count - 1 };
+      }
+      return item;
+    });
+    setBasketItems(updatedItems);
+    localStorage.setItem('basketItems', JSON.stringify(updatedItems));
+    calculateTotalPrice(updatedItems);
+  };
 
   return (
     <div className='basketcontainer'>
@@ -113,7 +99,7 @@ function Basket() {
                     <p>{item.name.length > 0 ? item.name.slice(0, 35) + "..." : item.name}</p>
                     <div className='caunter'>
                       <div className='caunterlar' onClick={() => handleDecrement(item.id)}>-</div>
-                      <input style={{ width: "50px", padding: "4px 5px", outline: "none", border: "1px solid #EAEAEA" }} type="number" min="1" value={item.quantity} onChange={(e) => handleQuantityChange(item.id, e.target.value)} />
+                      <div>{item.count}</div>
                       <div className='caunterlar' onClick={() => handleIncrement(item.id)}>+</div>
                     </div>
                   </div>
@@ -128,7 +114,7 @@ function Basket() {
           <div className='basketbutton2'>
             <div className='itagobasket'>Итого: {totalPrice.toLocaleString()} ₽</div>
             <div className='basketbutton'>
-              <button className='buttonbasket1'>Оформить заказ</button>
+              <NavLink to={"/zakas"}> <button className='buttonbasket1'>Оформить заказ</button></NavLink>
               <NavLink to={"/katalog"}><button className='buttonbasket2'>Продолжить покупки</button></NavLink>
             </div>
           </div>

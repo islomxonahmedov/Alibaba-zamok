@@ -10,6 +10,7 @@ import Cardinfo from './pages/Cardinfo.jsx'
 import Katalog from './pages/Katalog.jsx'
 import Basket from './pages/Basket.jsx'
 import Like from './pages/ Like.jsx'
+import Zakas from './pages/Zakas.jsx'
 
 const router = createBrowserRouter([
   {
@@ -35,8 +36,11 @@ const router = createBrowserRouter([
       {
         path: "like",
         element: <Like />,
+      },
+      {
+        path: "zakas",
+        element: <Zakas />,
       }
-
     ]
   }
 ])

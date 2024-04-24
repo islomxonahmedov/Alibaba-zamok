@@ -29,7 +29,7 @@ function Katalog() {
     const [filterkatalog, setfilterkatalog] = useState(null);
 
     // h3-lar chilishi
-    const [activeIndex, setActiveIndex] = useState(null);
+    const [activeIndex, setActiveIndex] = useState(0);
 
     // rang state
     const [value, setValue] = useState([0, 10000]);
@@ -37,16 +37,32 @@ function Katalog() {
     // filter yani price bo'yicha option
     const [sortBy, setSortBy] = useState("default");
 
-    // rang
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
-    };
-
     // Pagination uchun state'lar
     const [currentPage, setCurrentPage] = useState(1);
 
     // bitta pagedan qancha mahsulot borligi
     const [itemsPerPage] = useState(6);
+
+    const [priceRange, setPriceRange] = useState([0, 5000]);
+
+    // Fetching users
+    useEffect(() => {
+        dispatch(fetchUsers());
+    }, [dispatch]);
+
+    // Filtering users based on the selected price range
+    const filteredUsers = users.filter(user =>
+        user.price >= priceRange[0] && user.price <= priceRange[1]
+    );
+
+    // Calculate the current items to display
+    const indexOfLastUser = currentPage * itemsPerPage;
+    const indexOfFirstUser = indexOfLastUser - itemsPerPage;
+    const currentUsers = filteredUsers.slice(indexOfFirstUser, indexOfLastUser);
+
+    // Handle changing pages
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
 
     // malumotlarni effectga solish
     useEffect(() => {
@@ -73,23 +89,6 @@ function Katalog() {
 
     // Joriy sahifadagi foydalanuvchilarni aniqlash
     const indexOfLastItem = currentPage * itemsPerPage;
-    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    const currentUsers = users.slice(indexOfFirstItem, indexOfLastItem);
-
-    // Sahifani o'zgartirish funktsiyasi
-    const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
-    // Keyingi va avvalgi sahifalar uchun funktsiyalar
-    const nextPage = () => setCurrentPage(currentPage + 1);
-    const prevPage = () => setCurrentPage(currentPage - 1);
-
-    // Filtrlarni qayta o'rnatish funktsiyasi
-    const resetFilters = () => {
-        const filterKatalogElement = document.querySelector('.filterkatalog');
-        if (filterKatalogElement) {
-            filterKatalogElement.style.display = 'block';
-        }
-    };
 
     // filter ni ochilish funksiyasi
     const toggleParagraphVisibility = (index) => {
@@ -114,10 +113,42 @@ function Katalog() {
                 return 0;
         }
     };
+    const [selected, setSelected] = useState('');
+    const [filteredUserns, setFilteredUserns] = useState([]);
+
+
+    const handleChange = (event) => {
+        const { value, checked } = event.target;
+        if (checked) {
+            setSelected(value);
+        } else {
+            setSelected('');
+        }
+    };
+
+    useEffect(() => {
+        if (selected.length > 0) {
+            setFilteredUserns(users.filter(user => selected.includes(user.category)));
+        } else {
+            setFilteredUserns(users);
+        }
+    }, [selected, users]);
 
     // malumotlarni bitta o'zgaruvchiga tenglash
     const sortedProducts = [...currentUsers].sort(sortProducts);
 
+    const combinedUsers = sortedProducts.filter(product =>
+        filteredUserns.some(filteredUser => filteredUser.id === product.id)
+    );
+    const [categoryCounts, setCategoryCounts] = useState({});
+
+    useEffect(() => {
+        const counts = users.reduce((acc, user) => {
+            acc[user.category] = (acc[user.category] || 0) + 1;
+            return acc;
+        }, {});
+        setCategoryCounts(counts);
+    }, [users]);
     return (
         <div className='katalog'>
             <div>
@@ -128,7 +159,7 @@ function Katalog() {
                         <button className='buuuton'>Электронные кодовые замки <HiMiniXMark style={{ color: "#E44286", fontSize: "20px" }} /></button>
                     </div>
                     <div className='filterpricediskaunt'>
-                        <select className='selectkatalog' style={{ width: "170px", background: "white", outline: "none" }} name="" id="" onChange={(e) => setSortBy(e.target.value)}>
+                        <select className='selectkatalog' style={{ width: "170px", background: "white", outline: "none" }} onChange={(e) => setSortBy(e.target.value)}>
                             <option value="default">Сортировка</option>
                             <option value="cheap">Дешевый</option>
                             <option value="expensive">Дорогой</option>
@@ -147,20 +178,38 @@ function Katalog() {
                         <h3 className='filterupflex' onClick={() => toggleParagraphVisibilityy(0)}>Цена{activeIndex === 0 ? <FaAngleUp style={{ fontSize: "20px", color: "#4295E4" }} /> : <FaAngleDown style={{ fontSize: "20px", color: "#938A9F" }} />}</h3>
                         {activeIndex === 0 && (
                             <div className='range_input'>
-                                <Slider
-                                    style={{ color: "#487B6C" }}
-                                    value={value}
-                                    onChange={handleChange}
+                                <div class="price-range-buttons">
+                                    <button>{`Мин: ${priceRange[0]}₽`}</button>
+                                    <button>{`Макс: ${priceRange[1]}₽`}</button>
+                                </div>
+                                <Slider value={priceRange}
+                                    onChange={(event, newValue) => setPriceRange(newValue)}
                                     valueLabelDisplay="auto"
-                                    getAriaValueText={valuetext}
-                                    max={10000}
                                     min={0}
+                                    max={6000}
+                                    style={{ width: '200px', marginLeft: "25px" }}
                                 />
                             </div>
                         )}
                         <h3 className='filterupflex' onClick={() => toggleParagraphVisibilityy(1)}>Особенности{activeIndex === 1 ? <FaAngleUp style={{ fontSize: "20px", color: "#4295E4" }} /> : <FaAngleDown style={{ fontSize: "20px", color: "#938A9F" }} />}</h3>
                         {activeIndex === 1 && (
-                            <p>2</p>
+                            <div className='categoriyinputs'>
+                                <div className='input_labelchex'>
+                                    <input type="checkbox" id="electronic_lock" checked={selected.includes('electronic_lock')} onChange={handleChange} value="electronic_lock" />
+                                    <label className='labelw' htmlFor="electronic_lock">Электронные кодовые замки</label>
+                                    <div>({categoryCounts['electronic_lock'] || 0})</div>
+                                </div>
+                                <div className='input_labelchex'>
+                                    <input type="checkbox" id="mechanical_lock" checked={selected.includes('mechanical_lock')} onChange={handleChange} value="mechanical_lock" />
+                                    <label className='labelw' htmlFor="mechanical_lock">Механические замки</label>
+                                    <div>({categoryCounts['mechanical_lock'] || 0})</div>
+                                </div>
+                                <div className='input_labelchex'>
+                                    <input type="checkbox" id="pinkod_lock" checked={selected.includes('pinkod_lock')} onChange={handleChange} value="pinkod_lock" />
+                                    <label className='labelw' htmlFor="pinkod_lock">Пинкод замки</label>
+                                    <div>({categoryCounts['pinkod_lock'] || 0})</div>
+                                </div>
+                            </div>
                         )}
                         <h3 className='filterupflex' onClick={() => toggleParagraphVisibilityy(2)}>Цвет{activeIndex === 2 ? <FaAngleUp style={{ fontSize: "20px", color: "#4295E4" }} /> : <FaAngleDown style={{ fontSize: "20px", color: "#938A9F" }} />}</h3>
                         {activeIndex === 2 && (
@@ -179,7 +228,7 @@ function Katalog() {
 
                 <div>
                     <div className='catalogcard'>
-                        {sortedProducts.map(user => (
+                        {combinedUsers.map(user => (
                             <NavLink to={`/${user.id}`} key={user.id}>
                                 <div className="catalogcartcontainer">
                                     <img className='catalogimg' src={user.img} alt="" />
@@ -217,14 +266,12 @@ function Katalog() {
                         ))}
                     </div>
                     {/* Sayfalama tugmalar */}
-                    <div style={{ display: "flex", justifyContent: "center", marginTop: "30px", gap: "30px" }}>
-                        <button onClick={prevPage} disabled={currentPage === 1}><AiOutlineDoubleLeft /></button>
-                        <Pagination
-                            itemsPerPage={itemsPerPage}
-                            totalItems={users.length}
-                            paginate={paginate}
-                        />
-                        <button onClick={nextPage} disabled={currentPage === Math.ceil(users.length / itemsPerPage)}><AiOutlineDoubleRight /></button>
+                    <div style={{ display: "flex", gap: "10px", marginTop: "20px", justifyContent: "center" }} className="pagination">
+                        <button onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))} disabled={currentPage === 1}>Previous</button>
+                        {Array.from({ length: Math.ceil(filteredUsers.length / itemsPerPage) }, (_, index) => (
+                            <button key={index} onClick={() => paginate(index + 1)}>{index + 1}</button>
+                        ))}
+                        <button onClick={() => setCurrentPage(prev => Math.min(prev + 1, Math.ceil(filteredUsers.length / itemsPerPage)))} disabled={currentPage === Math.ceil(filteredUsers.length / itemsPerPage)}>Next</button>
                     </div>
                 </div>
             </div>
@@ -234,28 +281,5 @@ function Katalog() {
         </div>
     );
 }
-
-// Sahifalash tugmalarini yaratuvchi komponent
-const Pagination = ({ itemsPerPage, totalItems, paginate }) => {
-    const pageNumbers = [];
-
-    for (let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {
-        pageNumbers.push(i);
-    }
-
-    return (
-        <nav>
-            <ul style={{ display: "flex", gap: "25px", justifyContent: "center", cursor: "pointer" }} className='pagination'>
-                {pageNumbers.map(number => (
-                    <li key={number} className='page-item'>
-                        <a onClick={() => paginate(number)} className='page-link'>
-                            {number}
-                        </a>
-                    </li>
-                ))}
-            </ul>
-        </nav>
-    );
-};
 
 export default Katalog;

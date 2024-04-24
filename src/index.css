@@ -545,7 +545,7 @@ h1 {
 
 .filterkatalog {
     width: 300px !important;
-    height: auto;
+    height: fit-content;
     padding: 24px;
     border: 1px solid #C4CDD5;
     display: flex;
@@ -702,16 +702,185 @@ h1 {
     background-color: #4295E4;
     color: white;
 }
-.likecontainer{
+
+.likecontainer {
     width: 1200px !important;
     margin: 0 auto;
 }
-.basketcardparent2{
+
+.basketcardparent2 {
     display: flex;
     flex-wrap: wrap;
     gap: 60px;
 }
 
+.zakascontainer {
+    width: 1200px;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.zakascontent {
+    width: 700px;
+    border: 1px solid #EAEAEA;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.namelarinputflex {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.namelarinputflex label {
+    font-size: 20px;
+}
+
+.namelarinputflex .zakasinput {
+    width: 313px;
+    border: 1px solid #4295E433;
+    padding: 10px 20px;
+}
+
+.flexlarinputaj {
+    display: flex;
+    gap: 20px;
+}
+
+.namelarinputflex1 {
+    display: flex;
+    gap: 8px;
+    font-size: 20px;
+}
+
+.namelarinputflex1 input {
+    width: 16px;
+}
+
+.selectcar {
+    width: 250px;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid #4295E433;
+    margin: 10px 0 10px 10px;
+}
+
+.selectcar2 {
+    width: 220px;
+    background-color: #4295E40A;
+    color: rgb(0, 0, 0);
+    outline: none;
+
+}
+
+.zakascardk {
+    display: flex;
+    justify-content: space-between;
+}
+
+.zakascard {
+    width: 470px;
+    height: fit-content;
+    border: 1px solid #EAEAEA;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 25px 30px;
+}
+
+.basketcard_flex2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.bordertop {
+    border-top: 1px solid #EAEAEA;
+    border-bottom: 1px solid #EAEAEA;
+    padding: 20px 0;
+}
+
+.pagination {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+.pagination button {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 8px 16px;
+    font-size: 16px;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.pagination button:hover {
+    background-color: #f0f0f0;
+    color: #4295E4;
+}
+
+.pagination button.active {
+    background-color: #ddd;
+    border-color: #ccc;
+    cursor: default;
+}
+
+.pagination button:disabled {
+    background-color: #eee;
+    cursor: default;
+    opacity: 0.6;
+}
+
+.price-range-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.price-range-buttons button {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+}
+
+.price-range-buttons button:hover {
+    background-color: #f0f0f0;
+}
+
+.input_labelchex{
+    width: 230px;
+    display: flex;
+    align-items: first baseline;
+    gap: 5px;
+    margin-left: 20px;
+}
+.input_labelchex label{
+    width: 200px !important;
+}
+.input_labelchex input{
+    position: relative;
+    top: 1px;
+}
+.categoriyinputs{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
 /* mediya 1250px */
 
 @media screen and (max-width: 1250px) {
@@ -1706,7 +1875,7 @@ h1 {
 
     .info_container {
         width: 300px;
-     }
+    }
 
     .cardinfocarusel {
         width: 300px;

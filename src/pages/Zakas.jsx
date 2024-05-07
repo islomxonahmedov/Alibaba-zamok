@@ -54,13 +54,12 @@ function Zakas() {
     const toggleParagraphVisibility2 = (index) => {
         setActiveIndex1(index === activeIndex1 ? null : index);
     };
-    const navigate = useNavigate
     return (
         <div className='zakascontainer'>
-            <h2 style={{ fontSize: "30px" }}>Оформление заказа</h2>
+            <h2 className='ofermenezakas' style={{ fontSize: "30px" }}>Оформление заказа</h2>
             <div className='zakascardk'>
                 <div className='zakascontent'>
-                    <h3 style={{ fontSize: "25px" }}>1. Контактные данные</h3>
+                    <h3 className='ofermenezakas' style={{ fontSize: "25px" }}>1. Контактные данные</h3>
                     <div className='flexlarinputaj'>
                         <div className='namelarinputflex'>
                             <label htmlFor="fname">Фамилия</label>
@@ -81,7 +80,7 @@ function Zakas() {
                             <input className='zakasinput' type="email" id='ename' name='ename' placeholder='abubakirovabubakir@mail.ru' />
                         </div>
                     </div>
-                    <h3 style={{ fontSize: "25px" }}>2. Доставка</h3>
+                    <h3 className='ofermenezakas' style={{ fontSize: "25px" }}>2. Доставка</h3>
                     <div className='flexlarinputaj1'>
                         <div onInput={() => toggleParagraphVisibility(0)} className='namelarinputflex1'>
                             <input type="radio" id='rname' name='contactMethod' />
@@ -145,11 +144,15 @@ function Zakas() {
                             </div>
                         )}
                     </div>
-                    <h3 style={{ fontSize: "25px" }}>3. Оплата</h3>
-                    <div className='namelarinputflex1'>
+                    <h3 className='ofermenezakas' style={{ fontSize: "25px" }}>3. Оплата</h3>
+                    <div onInput={() => toggleParagraphVisibility2(1)} className='namelarinputflex1'>
                         <input type="radio" id='nname' name='contactMethod2' />
                         <label htmlFor="nname">Оплата при получении товара</label>
                     </div>
+                    {activeIndex1 === 0 && (
+                        <>
+                        </>
+                    )}
                     <div onInput={() => toggleParagraphVisibility2(0)} className='namelarinputflex1'>
                         <input type="radio" id='pname' name='contactMethod2' />
                         <label htmlFor="pname">Банковская карта</label>
@@ -180,60 +183,61 @@ function Zakas() {
                     )}
                 </div>
                 <div className='zakascard'>
-                    <div style={{ fontSize: "22px", fontWeight: "500" }}>Итого</div>
+                    <div className='ofermenezakas' style={{ fontSize: "22px", fontWeight: "500" }}>Итого</div>
                     <div className='bordertop'>
                         {basketItems.map(item => (
                             <div className='basketcard2' key={item.id}>
                                 <div className='basketcard_flex2'>
-                                    <img style={{ width: "80px" }} src={item.img} alt="" />
-                                    <div style={{ display: "flex", flexDirection: "column", gap: "5px" }}>
-                                        <p>{item.name.length > 0 ? item.name.slice(0, 35) + "..." : item.name}</p>
-                                        <div style={{ gap: "30px" }} className='caunter'>
-                                            <div style={{ display: "flex", alignItems: "center" }}>
+                                    <img className='zakasimg1250px' style={{ width: "80px" }} src={item.img} alt="" />
+                                    <div style={{ display: "flex", flexDirection: "column", gap: "5px" }} className='namezakas1250px'>
+                                        <p className='namez2akas1250px'>{item.name.length > 0 ? item.name.slice(0, 35) + "..." : item.name}</p>
+                                        <div id='subtotal1250px' className='caunter'>
+                                            <div className='caunterzakas1250px' style={{ display: "flex", alignItems: "center" }}>
                                                 <div className='caunterlar' onClick={() => handleDecrement(item.id)}>-</div>
                                                 <div>{item.count}</div>
                                                 <div className='caunterlar' onClick={() => handleIncrement(item.id)}>+</div>
                                             </div>
-                                            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}><h1 style={{ fontSize: '20px', color: "#161C24" }}>{Math.round(calcDis(item.price, item.discount))}₽ </h1><del style={{ color: "#454F5B" }}>{Math.round(item.price)}₽</del></div>
+                                            <div className='subtotal1250px' style={{ display: "flex", alignItems: "center", gap: "10px" }}><h1 className='mndf' style={{ fontSize: '20px', color: "#161C24" }}>{Math.round(calcDis(item.price, item.discount))}₽ </h1><del style={{ color: "#454F5B" }}>{Math.round(item.price)}₽</del></div>
                                         </div>
                                     </div>
                                 </div>
 
                             </div>
                         ))}
-                        <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px", fontWeight: "500" }}>
+                        <div className='engboshtotal' style={{ display: "flex", justifyContent: "space-between", marginTop: "10px", fontWeight: "500" }}>
                             <div>К оплате:</div>
-                            <div>{totalPrice.toLocaleString()} ₽</div>
+                            <div style={{ fontSize: "20px" }}>{totalPrice.toLocaleString()} ₽</div>
                         </div>
                     </div>
-                    <div style={{ marginTop: "5px" }}>Комплектация</div>
-                    <div style={{ display: "flex", gap: "20px" }}>
-                        <div style={{ display: "flex", gap: "5px" }}>
-                            <input type="checkbox" name='contactMethod3' id='oname' />
-                            <label htmlFor="oname">Нужна установка</label>
+                    <div className='textaligns'>
+                        <div style={{ marginTop: "5px" }}>Комплектация</div>
+                        <div className='textaligns' style={{ display: "flex", gap: "20px" }}>
+                            <div style={{ display: "flex", gap: "5px" }}>
+                                <input type="checkbox" name='contactMethod3' id='oname' />
+                                <label htmlFor="oname">Нужна установка</label>
+                            </div>
+                            <div style={{ display: "flex", gap: "5px" }}>
+                                <input type="checkbox" id='wname' name='contactMethod3' />
+                                <label htmlFor="wname">Настройка софта</label>
+                            </div>
                         </div>
-                        <div style={{ display: "flex", gap: "5px" }}>
-                            <input type="checkbox" id='wname' name='contactMethod3' />
-                            <label htmlFor="wname">Настройка софта</label>
-                        </div>
+                        <button onClick={() => {
+                            Swal.fire({
+                                title: 'Ваш запрос принят!',
+                                html: `<p>Вскоре вы получите электронное письмо с подтверждением заказа и указанием ожидаемой даты доставки ваших товаров.</p>`,
+                                icon: 'success',
+                                confirmButtonColor: '#46A358',
+                                confirmButtonText: 'Track your order',
+                            }).then((result) => {
+                                if (result.value) {
+                                    // Mahsulotlarni savatchadan o'chirish
+                                    localStorage.removeItem('basketItems'); // Agar savat mahsulotlari "basketItems" kalit bilan saqlangan bo'lsa
+                                    window.location.href = '/'; // Foydalanuvchini bosh sahifaga yo'naltirish
+                                }
+                            })
+                        }} style={{ margin: "5px 0 5px 55px", width: "300px" }} className='globalbutton bfdkjhsu'>Подтвердить заказ
+                        </button>
                     </div>
-                    <button onClick={() => {
-                        Swal.fire({
-                            title: 'Ваш запрос принят!',
-                            html: `<p>Вскоре вы получите электронное письмо с подтверждением заказа и указанием ожидаемой даты доставки ваших товаров.</p>`,
-                            icon: 'success',
-                            confirmButtonColor: '#46A358',
-                            confirmButtonText: 'Track your order',
-                        }).then((result) => {
-                            if (result.value) {
-                                // Mahsulotlarni savatchadan o'chirish
-                                localStorage.removeItem('basketItems'); // Agar savat mahsulotlari "basketItems" kalit bilan saqlangan bo'lsa
-                                window.location.href = '/'; // Foydalanuvchini bosh sahifaga yo'naltirish
-                            }
-                        })
-                    }} style={{ margin: "5px 0 5px 55px" }} className='globalbutton'>Подтвердить заказ</button>
-
-
                 </div>
             </div>
         </div>

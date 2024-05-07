@@ -45,6 +45,12 @@ function Katalog() {
 
     const [priceRange, setPriceRange] = useState([0, 5000]);
 
+    const [selectedColors, setSelectedColors] = useState([]);
+    const handleColorChange = (event) => {
+        const { value } = event.target;
+        setSelectedColors(value);
+    };
+
     // Fetching users
     useEffect(() => {
         dispatch(fetchUsers());
@@ -52,8 +58,16 @@ function Katalog() {
 
     // Filtering users based on the selected price range
     const filteredUsers = users.filter(user =>
+        (selectedColors.length === 0 || selectedColors.includes(user.color)) &&
         user.price >= priceRange[0] && user.price <= priceRange[1]
-    );
+    ).sort((a, b) => {
+        switch (sortBy) {
+            case "cheap": return a.price - b.price;
+            case "expensive": return b.price - a.price;
+            case "bigDiscount": return b.discount - a.discount;
+            default: return 0;
+        }
+    });
 
     // Calculate the current items to display
     const indexOfLastUser = currentPage * itemsPerPage;
@@ -149,6 +163,9 @@ function Katalog() {
         }, {});
         setCategoryCounts(counts);
     }, [users]);
+    const refreshPage = () => {
+        window.location.reload(false); // Sahifani yangilaydi
+    };
     return (
         <div className='katalog'>
             <div>
@@ -156,7 +173,7 @@ function Katalog() {
                 <div className="filterboshi">
                     <div className='filterboshi1'>
                         <button onClick={() => toggleParagraphVisibility(0)}>Сбросить фильтры<IoFilterOutline style={{ color: "#4295E4", fontSize: "20px" }} /></button>
-                        <button className='buuuton'>Электронные кодовые замки <HiMiniXMark style={{ color: "#E44286", fontSize: "20px" }} /></button>
+                        <button onClick={refreshPage} className='buuuton'>Очистить все<HiMiniXMark style={{ color: "#E44286", fontSize: "20px" }} /></button>
                     </div>
                     <div className='filterpricediskaunt'>
                         <select className='selectkatalog' style={{ width: "170px", background: "white", outline: "none" }} onChange={(e) => setSortBy(e.target.value)}>
@@ -213,7 +230,20 @@ function Katalog() {
                         )}
                         <h3 className='filterupflex' onClick={() => toggleParagraphVisibilityy(2)}>Цвет{activeIndex === 2 ? <FaAngleUp style={{ fontSize: "20px", color: "#4295E4" }} /> : <FaAngleDown style={{ fontSize: "20px", color: "#938A9F" }} />}</h3>
                         {activeIndex === 2 && (
-                            <p>3</p>
+                            <div style={{ marginLeft: "20px", display: "flex", flexDirection: "column", gap: "5px" }}>
+                                {['Черный', 'Желтый', 'Розовый'].map(color => (
+                                    <div style={{ display: "flex", gap: "5px" }} key={color}>
+                                        <input
+                                            type="checkbox"
+                                            id={color}
+                                            checked={selectedColors === color}
+                                            onChange={handleColorChange}
+                                            value={color}
+                                        />
+                                        <label htmlFor={color}>{color}</label>
+                                    </div>
+                                ))}
+                            </div>
                         )}
                         <h3 className='filterupflex' onClick={() => toggleParagraphVisibilityy(3)}>Материал{activeIndex === 3 ? <FaAngleUp style={{ fontSize: "20px", color: "#4295E4" }} /> : <FaAngleDown style={{ fontSize: "20px", color: "#938A9F" }} />}</h3>
                         {activeIndex === 3 && (
@@ -223,6 +253,7 @@ function Katalog() {
                         {activeIndex === 4 && (
                             <p>5</p>
                         )}
+                        <button style={{display:"flex",alignItems:"center",justifyContent:"center",border:"1px solid #4295E4",padding:"5px 0"}} onClick={refreshPage} className='buuuton'>Очистить все<HiMiniXMark style={{ color: "#E44286", fontSize: "20px" }} /></button>
                     </div>
                 )}
 

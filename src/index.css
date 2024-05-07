@@ -862,25 +862,29 @@ h1 {
     background-color: #f0f0f0;
 }
 
-.input_labelchex{
+.input_labelchex {
     width: 230px;
     display: flex;
     align-items: first baseline;
     gap: 5px;
     margin-left: 20px;
 }
-.input_labelchex label{
+
+.input_labelchex label {
     width: 200px !important;
 }
-.input_labelchex input{
+
+.input_labelchex input {
     position: relative;
     top: 1px;
 }
-.categoriyinputs{
+
+.categoriyinputs {
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
+
 /* mediya 1250px */
 
 @media screen and (max-width: 1250px) {
@@ -1176,6 +1180,102 @@ h1 {
         height: 550px;
     }
 
+    .zakascontainer {
+        width: 900px;
+    }
+
+    .zakascontent {
+        width: 900px;
+        padding: 15px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .namelarinputflex label {
+        font-size: 18px;
+    }
+
+    .namelarinputflex .zakasinput {
+        width: 420px;
+    }
+
+    .namelarinputflex1 {
+        gap: 5px;
+        font-size: 19px;
+    }
+
+    .namelarinputflex1 input {
+        width: 16px;
+    }
+
+    .selectcar {
+        padding: 7px;
+    }
+
+    .selectcar2 {
+        width: 220px;
+        background-color: #4295E40A;
+        color: rgb(0, 0, 0);
+        outline: none;
+
+    }
+
+    .zakascardk {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .zakascard {
+        width: 900px !important;
+        gap: 5px;
+    }
+
+    .basketcard_flex2 {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .namezakas1250px {
+        flex-direction: row !important;
+        align-items: start;
+    }
+
+    .zakasimg1250px {
+        width: 150px !important;
+    }
+
+    .namez2akas1250px {
+        width: 330px !important;
+        font-size: 20px;
+    }
+
+    .caunterzakas1250px {
+        font-size: 20px;
+        gap: 3px;
+    }
+
+    #subtotal1250px {
+        gap: 50px !important;
+    }
+
+    .subtotal1250px {
+        font-size: 25px;
+        gap: 10px !important;
+    }
+
+    .engboshtotal {
+        justify-content: space-around !important;
+        gap: 400px !important;
+        font-size: 20px;
+    }
+
+    .textaligns {
+        text-align: center;
+        justify-content: center;
+    }
+
 }
 
 /* mediaya 1000px */
@@ -1431,6 +1531,100 @@ h1 {
         width: 300px;
         height: 400px;
     }
+
+    .zakascontainer {
+        width: 700px;
+    }
+
+    .zakascontent {
+        width: 700px;
+        padding: 10px;
+        gap: 5px;
+    }
+
+    .namelarinputflex label {
+        font-size: 18px;
+    }
+
+    .namelarinputflex .zakasinput {
+        width: 328px;
+    }
+
+    .namelarinputflex1 {
+        gap: 5px;
+        font-size: 19px;
+    }
+
+    .namelarinputflex1 input {
+        width: 16px;
+    }
+
+    .selectcar {
+        padding: 7px;
+    }
+
+    .zakascardk {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .zakascard {
+        width: 700px !important;
+        gap: 5px;
+    }
+
+    .basketcard_flex2 {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .namezakas1250px {
+        flex-direction: column !important;
+    }
+
+    .zakasimg1250px {
+        width: 160px !important;
+    }
+
+    .namez2akas1250px {
+        width: 345px !important;
+        font-size: 20px;
+    }
+
+    .caunterzakas1250px {
+        font-size: 20px;
+        gap: 3px;
+    }
+
+    #subtotal1250px {
+        gap: 60px !important;
+    }
+
+    .subtotal1250px {
+        font-size: 25px;
+        gap: 10px !important;
+    }
+
+    .engboshtotal {
+        justify-content: space-around !important;
+        gap: 400px !important;
+        font-size: 20px;
+    }
+
+    .textaligns {
+        text-align: center;
+        justify-content: center;
+    }
+
+    .ofermenezakas {
+        font-size: 20px !important;
+    }
+
+    .zakascontainer {
+        font-family: 17px !important;
+    }
 }
 
 /* mediya 750px */
@@ -1609,6 +1803,104 @@ h1 {
     .info_container {
         width: 500px;
     }
+
+    .zakascontainer {
+        width: 500px;
+    }
+
+    .zakascontent {
+        width: 500px;
+        padding: 10px;
+    }
+
+    .namelarinputflex label {
+        font-size: 15px;
+    }
+
+    .namelarinputflex .zakasinput {
+        width: 229px;
+        padding: 10px !important;
+    }
+
+    .namelarinputflex1 {
+        gap: 5px;
+        font-size: 15px;
+    }
+
+    .namelarinputflex1 input {
+        width: 16px;
+    }
+
+    .selectcar2 {
+        width: 170px;
+    }
+
+    .selectcar {
+        width: 200px;
+        padding: 5px;
+        font-size: 15px;
+    }
+
+    .zakascardk {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .zakascard {
+        width: 500px !important;
+        gap: 5px;
+        padding: 10px;
+    }
+
+    .basketcard_flex2 {
+        gap: 10px;
+    }
+
+    .namezakas1250px {
+        flex-direction: column !important;
+    }
+
+    .zakasimg1250px {
+        width: 100px !important;
+    }
+
+    .namez2akas1250px {
+        width: 345px !important;
+        font-size: 15px;
+    }
+
+    .caunterzakas1250px {
+        font-size: 15px;
+        gap: 3px;
+    }
+
+    #subtotal1250px {
+        gap: 70px !important;
+    }
+
+    .subtotal1250px {
+        font-size: 20px;
+    }
+
+    .engboshtotal {
+        justify-content: space-around !important;
+        gap: 200px !important;
+        font-size: 20px;
+    }
+
+    .textaligns {
+        text-align: center;
+        justify-content: center;
+    }
+
+    .ofermenezakas {
+        font-size: 20px !important;
+    }
+
+    .zakascontainer {
+        font-family: 17px !important;
+    }
 }
 
 
@@ -1782,6 +2074,96 @@ h1 {
     .cardinfocarusel {
         width: 400px;
         overflow: hidden;
+    }
+
+    .zakascontainer {
+        width: 400px;
+    }
+
+    .zakascontent {
+        width: 400px;
+        padding: 0px;
+        border: none;
+    }
+
+    .flexlarinputaj {
+        flex-direction: column !important;
+        gap: 5px !important;
+    }
+
+    .namelarinputflex label {
+        font-size: 15px;
+    }
+
+    .namelarinputflex .zakasinput {
+        width: 388px;
+        padding: 7px !important;
+    }
+
+    .namelarinputflex1 {
+        gap: 5px;
+        font-size: 15px;
+    }
+
+    .namelarinputflex1 input {
+        width: 15px;
+    }
+
+    .selectcar2 {
+        width: 150px;
+    }
+
+    .selectcar {
+        width: 170px;
+        padding: 5px;
+        font-size: 15px;
+    }
+
+    .zakascard {
+        width: 400px !important;
+        gap: 5px;
+        padding: 0px;
+        border: none;
+        margin-bottom: 20px;
+    }
+
+    .basketcard_flex2 {
+        gap: 10px;
+    }
+
+    .namezakas1250px {
+        flex-direction: column !important;
+    }
+
+    .zakasimg1250px {
+        width: 100px !important;
+    }
+
+    .namez2akas1250px {
+        width: 200px !important;
+        font-size: 15px;
+    }
+
+    .caunterzakas1250px {
+        font-size: 15px;
+        gap: 3px;
+    }
+
+    #subtotal1250px {
+        gap: 80px !important;
+    }
+
+    .subtotal1250px {
+        font-size: 20px;
+    }
+
+    .engboshtotal {
+        gap: 150px !important;
+        font-size: 20px;
+    }
+
+    .ofermenezakas {
+        font-size: 18px !important;
     }
 }
 
@@ -2007,6 +2389,77 @@ h1 {
         width: 300px;
         gap: 5px;
         font-size: 14px !important;
+    }
+
+    .zakascontainer {
+        width: 300px;
+    }
+
+    .zakascontent {
+        width: 300px;
+    }
+
+    .flexlarinputaj {
+        gap: 2px !important;
+    }
+
+    .namelarinputflex .zakasinput {
+        width: 298px;
+        padding: 7px !important;
+    }
+
+    .namelarinputflex1 {
+        font-size: 15px;
+    }
+
+    .zakascard {
+        width: 300px !important;
+        gap: 1px;
+        margin-bottom: 10px;
+    }
+
+    .basketcard_flex2 {
+        gap: 5px;
+    }
+
+    .zakasimg1250px {
+        width: 90px !important;
+    }
+
+    .namez2akas1250px {
+        width: 190px !important;
+        font-size: 15px;
+    }
+
+    .caunterzakas1250px {
+        font-size: 15px;
+        gap: 3px;
+    }
+
+    #subtotal1250px {
+        gap: 1px !important;
+    }
+
+    .subtotal1250px {
+        font-size: 15px;
+    }
+
+    .engboshtotal {
+        gap: 10px !important;
+        font-size: 18px;
+    }
+
+    .ofermenezakas {
+        font-size: 18px !important;
+    }
+    .mndf{
+        font-size: 18px !important;
+    }
+    .textaligns{
+        font-size: 15px !important;
+    }
+    .bfdkjhsu{
+        margin: 0 0 0 0 !important;
     }
 }
 
